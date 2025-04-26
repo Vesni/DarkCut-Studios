@@ -37,3 +37,9 @@ function updateCountdown() {
 // Update countdown every second
 const timerInterval = setInterval(updateCountdown, 1000);
 updateCountdown();
+
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    preloader.style.display = 'none';
+});
+
