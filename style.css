@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #000;
+  color: #eee;
+}
+
+header {
+  background: #111;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo {
+  height: 50px;
+}
+
+nav {
+  margin-left: auto;
+}
+
+nav a {
+  color: #eee;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero h1 {
+  font-size: 3em;
+  color: #e60000;
+}
+
+.hero p {
+  margin-top: 10px;
+  color: #999;
+}
+
+.latest-episode {
+  margin: 30px 0;
+}
+
+.button {
+  display: inline-block;
+  background: #e60000;
+  padding: 12px 25px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.countdown {
+  margin: 20px 0;
+  font-size: 1.5em;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  background: #111;
+}
+
+.episodes {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.episode-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.episode {
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+}
