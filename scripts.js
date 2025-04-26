@@ -38,8 +38,13 @@ function updateCountdown() {
 const timerInterval = setInterval(updateCountdown, 1000);
 updateCountdown();
 
+// Preloader
 window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
+  const preloader = document.getElementById('preloader');
+  preloader.classList.add('fade-out');
+  setTimeout(() => {
     preloader.style.display = 'none';
+  }, 1000);
 });
+
 
