@@ -95,3 +95,24 @@ button:hover, a.button:hover {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+nav a {
+  color: #eee;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero h1 {
+  font-size: 3em;
+  color: #e60000;
+}
+
+.hero p {
+  margin-top: 10px;
+  color: #999;
+}
