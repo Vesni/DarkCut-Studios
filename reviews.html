@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviews | Smile Before You Die</title>
+  <link rel="stylesheet" href="reviews.css">
+</head>
+<body>
+  <div class="loader" id="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <header>
+    <a href="index.html" class="logo">DarkCut Studios</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="episodes.html">Episodes</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="reviews.html" class="active">Reviews</a>
+    </nav>
+  </header>
+
+  <section class="reviews">
+    <h1>Reviews</h1>
+    <form id="reviewForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <textarea id="review" placeholder="Write your review..." required></textarea>
+      <button type="submit">Submit Review</button>
+    </form>
+
+    <div class="reviews-list" id="reviewsList">
+      <!-- Reviews will appear here -->
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 DarkCut Studios | Smile Before You Die</p>
+  </footer>
+
+  <script src="reviews.js"></script>
+</body>
+</html>
