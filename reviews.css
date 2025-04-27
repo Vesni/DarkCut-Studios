@@ -1,121 +1,153 @@
-/* General */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    background-color: #0b0b0b;
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Loader */
 .loader {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: #000 url('/assets/loader.gif') no-repeat center center;
-    background-size: 150px;
-    z-index: 9999;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-/* Header */
+.spinner {
+  border: 6px solid #222;
+  border-top: 6px solid red;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Navbar */
 header {
-    background-color: #111;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid red;
+  background-color: #111;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 header .logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: red;
-    font-weight: bold;
-    font-size: 22px;
+  color: red;
+  font-size: 26px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-header .logo img {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
+header nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 16px;
+  position: relative;
+  transition: color 0.3s;
 }
 
-/* Main */
-main {
-    padding: 30px 20px;
+header nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: red;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
 }
 
-.review-form {
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid red;
-    margin-bottom: 40px;
+header nav a:hover::after {
+  width: 100%;
 }
 
-.review-form h1 {
-    color: #ff4747;
-    margin-bottom: 20px;
+header nav a.active {
+  color: red;
 }
 
-input, textarea, select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    background: #222;
-    border: 1px solid #ff4747;
-    color: white;
-    border-radius: 8px;
+/* Reviews Section */
+.reviews {
+  flex: 1;
+  padding: 50px 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.reviews h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 36px;
+  color: red;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+input, textarea {
+  padding: 15px;
+  background-color: #222;
+  border: 1px solid #444;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
 }
 
 button {
-    background: red;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  padding: 15px;
+  background-color: red;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 button:hover {
-    background: darkred;
+  background-color: darkred;
 }
 
-/* Reviews */
-.user-reviews h2 {
-    color: #ff4747;
-    margin-bottom: 20px;
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.review {
-    background: #1a1a1a;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    border: 1px solid red;
+.review-item {
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #333;
 }
 
-.review h3 {
-    margin: 0;
-    font-size: 20px;
-    color: #ffd700;
-}
-
-.review p {
-    margin: 10px 0 0;
-    color: #ccc;
-}
-
-/* Fade effect when adding review */
-.fade-in {
-    animation: fadeIn 1s ease forwards;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Footer */
+footer {
+  background: #111;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #777;
+  margin-top: auto;
 }
