@@ -119,3 +119,14 @@ nav a {
 .logo {
   height: 50px;
 }
+
+nav {
+  margin-left: auto;
+}
+
+nav a {
+  color: #eee;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
