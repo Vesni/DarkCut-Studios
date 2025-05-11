@@ -1,170 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DarkCut Studios – Closed Down</title>
-  <link rel="icon" href="favicon.ico" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: #141414;
-      color: #e50914;
-      font-family: 'Orbitron', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      height: 100vh;
-      text-align: center;
-      overflow: hidden;
-      position: relative;
-      padding: 20px;
-    }
-
-    .glow {
-      text-shadow: 0 0 10px #e50914, 0 0 20px #e50914;
-    }
-
-    h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 1.1em;
-      color: #ffffff;
-      max-width: 600px;
-      margin-bottom: 30px;
-      line-height: 1.5;
-    }
-
-    .countdown {
-      font-size: 1.5em;
-      color: #08d9d6;
-      margin-bottom: 30px;
-    }
-
-    a {
-      color: #ffffff;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: bold;
-    }
-
-    a:hover {
-      color: #e50914;
-    }
-
-    .footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9em;
-      color: #888;
-    }
-
-    .background {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif') center/cover no-repeat;
-      opacity: 0.03;
-      z-index: -1;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smile Before You Die | DarkCut Studios</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="assets/logo.png">
 </head>
+
 <body>
-  <audio id="bgMusic" autoplay loop>
-  <source src="The Weeknd - Cry For Me (Official Music Video) (online-audio-converter.com).mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
 
-<!-- Mute Button -->
-<button id="muteBtn" style="
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: transparent;
-  color: #fff;
-  border: 2px solid #e50914;
-  padding: 5px 10px;
-  font-family: 'Orbitron', sans-serif;
-  cursor: pointer;
-  z-index: 10;
-">🔊 Mute</button>
+  <header>
+    <img src="logo.png" alt="DarkCut Studios Logo" class="logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="episodes.html">Episodes</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="Vesni.html">About Vesni</a>
+    </nav>
+  </header>
 
-  <div class="background"></div>
-  <h1 class="glow">🎬 DarkCut Studios – On Maintenance Break</h1>
-  <p>We’re taking a Maintenance Break to Re-Vamp The Website <br>New episodes of <strong>Smile Before You Die</strong> are coming soon!</p>
+  <section class="hero">
+    <h1>Smile Before You Die - Official Trailer</h1>
+    <p>A 30-Day Thriller-Comedy Mystery Challenge</p>
 
-  <div class="countdown" id="countdown">Loading timer...</div>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/qu8dTpYLb7Q" title="Smile Before You Die - Official Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
 
-  <p>
-    Stay connected:<br/>
-    <a href="https://www.youtube.com/@DarkCut-Studios" target="_blank">YouTube</a> |
-    <a href="mailto:vesni277@gmail.com">Email</a> |
-    <a href="https://wa.me/2348026271354" target="_blank">WhatsApp</a>
-  </p>
+    <div class="countdown">
+      <h3>Next Episode Drops In:</h3>
+      <div id="timer"></div>
+    </div>
 
-  <div class="footer">© 2025 DarkCut Studios · Directed by Vesni Lanus</div>
+    <a href="episodes.html" class="button">Watch All Episodes</a>
+  </section>
 
-  <script>
-    // Set your return date here:
-    const returnDate = new Date("June 1, 2025 00:00:00").getTime();
+  <footer>
+    <p>&copy; 2025 DarkCut Studios | All rights reserved.</p>
+  </footer>
 
-    const countdownElement = document.getElementById("countdown");
-
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = returnDate - now;
-
-      if (distance < 0) {
-        clearInterval(timer);
-        countdownElement.innerHTML = "We're Back Online!";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      countdownElement.innerHTML = 
-        `⏳ Returning in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000);
-     const music = document.getElementById("bgMusic");
-  const muteBtn = document.getElementById("muteBtn");
-
-  music.volume = 0.5;
-
-  muteBtn.addEventListener("click", () => {
-    if (music.muted) {
-      music.muted = false;
-      muteBtn.textContent = "🔊 Mute";
-    } else {
-      music.muted = true;
-      muteBtn.textContent = "🔈 Unmute";
-    }
-  });
-
-  // Optional fade-in effect
-  let vol = 0;
-  const fadeIn = setInterval(() => {
-    if (vol < 0.5) {
-      vol += 0.01;
-      music.volume = vol;
-    } else {
-      clearInterval(fadeIn);
-    }
-  }, 100);
-
-  </script>
+  <script src="scripts.js"></script>
 </body>
+
 </html>
