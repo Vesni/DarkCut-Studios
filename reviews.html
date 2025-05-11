@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reviews | Smile Before You Die</title>
   <link rel="stylesheet" href="reviews.css">
-  
 </head>
+
 <body>
+  <!-- Loading spinner -->
   <div class="loader" id="loader">
     <div class="spinner"></div>
   </div>
 
   <header>
-     <img src="logo.png" alt="DarkCut Studios Logo" class="logo">
+    <img src="logo.png" alt="DarkCut Studios Logo" class="logo">
     <nav>
       <a href="index.html">Home</a>
       <a href="episodes.html">Episodes</a>
@@ -26,14 +28,17 @@
 
   <section class="reviews">
     <h1>Reviews</h1>
+
+    <!-- Review form -->
     <form id="reviewForm">
       <input type="text" id="name" placeholder="Your Name" required>
       <textarea id="review" placeholder="Write your review..." required></textarea>
       <button type="submit">Submit Review</button>
     </form>
 
+    <!-- List of submitted reviews -->
     <div class="reviews-list" id="reviewsList">
-      <!-- Reviews will appear here -->
+      <!-- Reviews will be added here dynamically -->
     </div>
   </section>
 
@@ -43,4 +48,6 @@
 
   <script src="reviews.js"></script>
 </body>
+
 </html>
+
