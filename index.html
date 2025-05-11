@@ -1,183 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>DarkCut Studios - Maintenance Mode</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DarkCut Studios - We’ll Be Back</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Rubik&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0; padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      font-family: 'Rubik', sans-serif;
       background: black;
       color: white;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: flex-start;
       height: 100vh;
-      overflow: hidden;
+      overflow-x: hidden;
+      background: linear-gradient(to bottom, #000000, #111111);
+    }
+
+    header {
       text-align: center;
+      padding: 40px 20px 10px;
     }
 
-    .glitch-logo {
-      width: 200px;
-      animation: logoGlitch 2s infinite;
-      margin-bottom: 20px;
+    .logo {
+      width: 180px;
+      animation: flicker 2s infinite;
     }
 
-    @keyframes logoGlitch {
-      0%, 100% { transform: translate(0, 0) skew(0deg); }
-      20% { transform: translate(-2px, 2px) skew(1deg); }
-      40% { transform: translate(2px, -2px) skew(-1deg); }
-      60% { transform: translate(1px, 1px) skew(2deg); }
-      80% { transform: translate(-1px, -1px) skew(-2deg); }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
     }
 
-    .glitch {
-      font-size: 2.5rem;
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.2rem;
       color: #e50914;
-      animation: glitch 2s infinite;
-    }
-
-    @keyframes glitch {
-      0%, 100% { transform: skew(0deg); }
-      20% { transform: skew(-2deg); }
-      40% { transform: skew(2deg); }
-      60% { transform: skew(-1deg); }
-      80% { transform: skew(1deg); }
+      margin-top: 10px;
     }
 
     .typewriter {
-      font-size: 2rem;
-      white-space: nowrap;
+      margin-top: 20px;
+      font-size: 1.4rem;
       border-right: 2px solid #e50914;
-      width: 0;
+      white-space: nowrap;
       overflow: hidden;
-      animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
+      width: 0;
+      animation: typing 3s steps(40, end) forwards, blink 0.8s step-end infinite;
     }
 
     @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
+      from { width: 0; }
+      to { width: 100%; }
     }
 
     @keyframes blink {
-      50% { border-color: transparent }
+      50% { border-color: transparent; }
     }
 
     .countdown {
-      margin: 20px;
-      font-size: 1.5rem;
-      color: #fff;
+      margin-top: 30px;
+      font-size: 1.2rem;
     }
 
     .progress-container {
-      width: 80%;
-      height: 25px;
-      background: #333;
-      border-radius: 30px;
       margin-top: 20px;
+      width: 80%;
+      background: #222;
+      border-radius: 10px;
       overflow: hidden;
     }
 
     .progress-bar {
-      height: 100%;
-      background: #e50914;
+      height: 20px;
+      background-color: #e50914;
       width: 0%;
-      transition: width 0.5s;
     }
 
-    #muteBtn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: transparent;
-      color: #fff;
-      border: 2px solid #e50914;
-      padding: 5px 10px;
-      font-family: 'Orbitron', sans-serif;
+    .quote-box, .quiz-box {
+      margin-top: 30px;
+      padding: 20px;
+      border: 1px solid #333;
+      background-color: #111;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #e50914;
+      color: white;
+      border: none;
       cursor: pointer;
-      z-index: 10;
+      border-radius: 4px;
+      font-family: 'Rubik', sans-serif;
+    }
+
+    button:hover {
+      background-color: #b0060f;
     }
   </style>
 </head>
 <body>
+  <header>
+    <img src="logo.png" alt="DarkCut Studios Logo" class="logo" />
+    <h1>DarkCut Studios</h1>
+    <div class="typewriter" id="typeText">We’re cooking up something dark and thrilling...</div>
+  </header>
 
-<!-- MUSIC -->
-<audio id="bgMusic" autoplay loop>
-  <source src="The Weeknd - Cry For Me (Official Music Video) (online-audio-converter.com).mp3" type="audio/mpeg">
-</audio>
-<button id="muteBtn">🔊 Mute</button>
+  <div class="countdown" id="countdown"></div>
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
 
-<!-- LOGO -->
-<img src="logo.png" alt="DarkCut Logo" class="glitch-logo">
+  <div class="quote-box">
+    <p id="quoteText">“Nothing is more deceptive than an obvious fact.”</p>
+    <button onclick="newQuote()">New Quote</button>
+  </div>
 
-<!-- TEXT -->
-<div class="glitch">DARKCUT STUDIOS</div>
-<div class="typewriter" id="typewriterText">Rebooting Design's... Stay Tuned.</div>
-<div class="countdown" id="countdownText">Website Team says: Loading...</div>
+  <div class="quiz-box">
+    <p><strong>Which episode had the first major twist?</strong></p>
+    <button onclick="alert('Correct! Stay tuned for more.')">Episode 3</button>
+    <button onclick="alert('Close, but not quite! Try again.')">Episode 2</button>
+    <button onclick="alert('Nope. But you’ll find out soon!')">Episode 1</button>
+  </div>
 
-<!-- PROGRESS -->
-<div class="progress-container">
-  <div class="progress-bar" id="progressBar"></div>
-</div>
+  <script>
+    // Typewriter ends controlled
+    setTimeout(() => {
+      document.getElementById('typeText').style.borderRight = 'none';
+    }, 4000);
 
-<script>
-  // MUSIC CONTROLS
-  const music = document.getElementById("bgMusic");
-  const muteBtn = document.getElementById("muteBtn");
-  music.volume = 0;
-  let vol = 0;
-  const fadeIn = setInterval(() => {
-    if (vol < 0.5) {
-      vol += 0.01;
-      music.volume = vol;
-    } else {
-      clearInterval(fadeIn);
+    // Countdown logic
+    const releaseDate = new Date("May 25, 2025 00:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+    const progressBar = document.getElementById("progressBar");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = releaseDate - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      if (diff < 0) {
+        countdownEl.textContent = "We’re back!";
+        progressBar.style.width = "100%";
+      } else {
+        countdownEl.textContent = `Back in ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        const total = releaseDate - new Date("May 11, 2025").getTime();
+        const elapsed = now - new Date("May 11, 2025").getTime();
+        progressBar.style.width = `${(elapsed / total) * 100}%`;
+      }
+    }, 1000);
+
+    // Quote generator
+    const quotes = [
+      "“Nothing is more deceptive than an obvious fact.”",
+      "“Every twist has its turn.”",
+      "“In silence, the truth screams.”",
+      "“Watch closely. The lies wear masks.”",
+      "“The calm is just before the chaos.”",
+      "“TVesni is DA GOATT”"
+    ];
+
+    function newQuote() {
+      const rand = Math.floor(Math.random() * quotes.length);
+      document.getElementById("quoteText").textContent = quotes[rand];
     }
-  }, 100);
-
-  muteBtn.addEventListener("click", () => {
-    music.muted = !music.muted;
-    muteBtn.textContent = music.muted ? "🔈 Unmute" : "🔊 Mute";
-  });
-
-  // COUNTDOWN + PROGRESS
-  const countdownDate = new Date("May 12, 2025 00:00:00").getTime();
-  const countdownEl = document.getElementById("countdownText");
-  const progressBar = document.getElementById("progressBar");
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = countdownDate - now;
-
-    if (distance < 0) {
-      countdownEl.innerHTML = "Vesni says: We're back!";
-      progressBar.style.width = "100%";
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((distance / 1000 / 60) % 60);
-    const seconds = Math.floor((distance / 1000) % 60);
-
-    const totalDuration = countdownDate - new Date("May 11, 2025 00:00:00").getTime();
-    const elapsed = now - new Date("May 11, 2025 00:00:00").getTime();
-    const percent = Math.min(100, (elapsed / totalDuration) * 100);
-
-    countdownEl.innerHTML = `Our Website Team says: Only ${days}d ${hours}h ${minutes}m ${seconds}s left...`;
-    progressBar.style.width = `${percent}%`;
-  }
-
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
-</script>
-
+  </script>
 </body>
 </html>
+
 
