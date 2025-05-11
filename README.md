@@ -1,4 +1,4 @@
-# Smile Before You Die - Official Website
+# Smile Before You Die - Official Website (ON BREAK)
 
 **Developed for:** DarkCut Studios  
 **Project:** 30-Day Thriller-Comedy-Mystery Challenge
@@ -37,5 +37,3 @@ Here you can:
 - Professional navigation (Home, Episodes, About, Contact)
 
 ---
-
-## 📦 Structure
