@@ -3,49 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DarkCut Studios - We’ll Be Back</title>
+  <title>DarkCut Studios - Coming Soon</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Rubik&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: 'Rubik', sans-serif;
-      background: black;
+      background-color: black;
       color: white;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      height: 100vh;
-      overflow-x: hidden;
-      background: linear-gradient(to bottom, #000000, #111111);
-    }
-
-    header {
+      justify-content: center;
       text-align: center;
-      padding: 40px 20px 10px;
+      height: 100vh;
+      overflow: hidden;
     }
 
     .logo {
-      width: 180px;
-      animation: flicker 2s infinite;
-    }
-
-    @keyframes flicker {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
+      width: 150px;
+      margin-bottom: 20px;
     }
 
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 2.2rem;
       color: #e50914;
-      margin-top: 10px;
+      font-size: 2rem;
+      margin-bottom: 10px;
     }
 
     .typewriter {
-      margin-top: 20px;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       border-right: 2px solid #e50914;
       white-space: nowrap;
       overflow: hidden;
@@ -63,120 +52,53 @@
     }
 
     .countdown {
-      margin-top: 30px;
-      font-size: 1.2rem;
-    }
-
-    .progress-container {
       margin-top: 20px;
-      width: 80%;
-      background: #222;
-      border-radius: 10px;
-      overflow: hidden;
+      font-size: 1rem;
     }
 
-    .progress-bar {
-      height: 20px;
-      background-color: #e50914;
-      width: 0%;
-    }
-
-    .quote-box, .quiz-box {
-      margin-top: 30px;
-      padding: 20px;
-      border: 1px solid #333;
-      background-color: #111;
-      border-radius: 8px;
-      width: 90%;
-      max-width: 500px;
-    }
-
-    button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #e50914;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-      font-family: 'Rubik', sans-serif;
-    }
-
-    button:hover {
-      background-color: #b0060f;
+    audio {
+      position: absolute;
+      bottom: 20px;
+      width: 250px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="DarkCut Studios Logo" class="logo" />
-    <h1>DarkCut Studios</h1>
-    <div class="typewriter" id="typeText">We’re cooking up something dark and thrilling...</div>
-  </header>
+  <img src="logo.png" alt="DarkCut Studios Logo" class="logo">
+  <h1>DarkCut Studios</h1>
+  <div class="typewriter" id="typeText">Something thrilling is on the way...</div>
 
   <div class="countdown" id="countdown"></div>
-  <div class="progress-container">
-    <div class="progress-bar" id="progressBar"></div>
-  </div>
 
-  <div class="quote-box">
-    <p id="quoteText">“Nothing is more deceptive than an obvious fact.”</p>
-    <button onclick="newQuote()">New Quote</button>
-  </div>
-
-  <div class="quiz-box">
-    <p><strong>Which episode had the first major twist?</strong></p>
-    <button onclick="alert('Correct! Stay tuned for more.')">Episode 3</button>
-    <button onclick="alert('Close, but not quite! Try again.')">Episode 2</button>
-    <button onclick="alert('Nope. But you’ll find out soon!')">Episode 1</button>
-  </div>
+  <audio controls autoplay loop>
+    <source src= ".mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
   <script>
-    // Typewriter ends controlled
+    // Stop typewriter border after 4 seconds
     setTimeout(() => {
       document.getElementById('typeText').style.borderRight = 'none';
     }, 4000);
 
-    // Countdown logic
+    // Countdown
     const releaseDate = new Date("May 25, 2025 00:00:00").getTime();
     const countdownEl = document.getElementById("countdown");
-    const progressBar = document.getElementById("progressBar");
 
     setInterval(() => {
       const now = new Date().getTime();
       const diff = releaseDate - now;
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / 1000 / 60) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
       if (diff < 0) {
-        countdownEl.textContent = "We’re back!";
-        progressBar.style.width = "100%";
+        countdownEl.textContent = "We're back online!";
       } else {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / 1000 / 60) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
         countdownEl.textContent = `Back in ${days}d ${hours}h ${minutes}m ${seconds}s`;
-        const total = releaseDate - new Date("May 11, 2025").getTime();
-        const elapsed = now - new Date("May 11, 2025").getTime();
-        progressBar.style.width = `${(elapsed / total) * 100}%`;
       }
     }, 1000);
-
-    // Quote generator
-    const quotes = [
-      "“Nothing is more deceptive than an obvious fact.”",
-      "“Every twist has its turn.”",
-      "“In silence, the truth screams.”",
-      "“Watch closely. The lies wear masks.”",
-      "“The calm is just before the chaos.”",
-      "“TVesni is DA GOATT”"
-    ];
-
-    function newQuote() {
-      const rand = Math.floor(Math.random() * quotes.length);
-      document.getElementById("quoteText").textContent = quotes[rand];
-    }
   </script>
 </body>
 </html>
-
 
