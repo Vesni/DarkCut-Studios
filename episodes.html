@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +6,119 @@
   <title>Episodes | Smile Before You Die</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="assets/logo.png"> 
+  <style>
+    body {
+      background-color: #141414; /* Dark background */
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      width: 100%;
+      background-color: #141414;
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    header img {
+      width: 150px;
+      margin-right: 30px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    nav a {
+      color: #e50914; /* Netflix Red */
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    section.episodes {
+      max-width: 1000px;
+      margin-top: 120px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 3rem;
+      color: #e50914; /* Netflix Red */
+      margin-bottom: 30px;
+    }
+
+    .episode {
+      margin-bottom: 40px;
+      padding: 20px;
+      background-color: #222;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .episode h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    iframe {
+      border-radius: 8px;
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+    }
+
+    .coming-soon {
+      font-size: 1.5rem;
+      color: #aaa;
+      font-weight: bold;
+      text-align: center;
+      padding: 15px;
+      background-color: #333;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    .chapter {
+      font-size: 2rem;
+      color: #fff;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background-color: #141414;
+      padding: 15px 0;
+      color: #fff;
+      text-align: center;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+    }
+
+    footer p {
+      font-size: 1rem;
+    }
+  </style>
 </head>
 <body>
-
 
   <header>
     <img src="logo.png" alt="DarkCut Studios Logo" class="logo">
@@ -18,126 +127,98 @@
       <a href="episodes.html">Episodes</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-       <a href="reviews.html">Reviews</a>
-       <a href="Vesni.html">About Vesni</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="Vesni.html">About Vesni</a>
     </nav>
   </header>
 
- <section class="episodes">
-  <h2>Watch Episodes</h2>
+  <section class="episodes">
+    <h2>Watch Episodes</h2>
 
-  <div class="episode">
-    <h3>Episode 1: Smile for the Camera</h3>
-    <iframe width="560" height="315" 
-    src="https://www.youtube.com/embed/HwBRnWtR5sM" 
-    title="Smile Before You Die - Episode 1" frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen></iframe>
-  </div>
+    <div class="episode">
+      <h3>Episode 1: Smile for the Camera</h3>
+      <iframe src="https://www.youtube.com/embed/HwBRnWtR5sM" title="Smile Before You Die - Episode 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
 
-  <div class="episode">
-    <h3>Episode 2: Jokes on You</h3>
-    <iframe width="560" height="315" 
-    src="https://www.youtube.com/embed/Htku5uG6W5g" 
-    title="Smile Before You Die - Episode 2" frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen></iframe>
-  </div>
+    <div class="episode">
+      <h3>Episode 2: Jokes on You</h3>
+      <iframe src="https://www.youtube.com/embed/Htku5uG6W5g" title="Smile Before You Die - Episode 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
 
-  <!-- Future episodes placeholder -->
-  <div class="episode">
+    <div class="episode">
       <h3>Episode 3: Behind the Mask</h3>
-    <iframe width="560" height="315" 
-    src="https://www.youtube.com/embed/tG8CZgrTIdM" 
-    title="Smile Before You Die - Episode 3" frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen></iframe>
-  </div>
+      <iframe src="https://www.youtube.com/embed/tG8CZgrTIdM" title="Smile Before You Die - Episode 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
 
-  <div class="episode">
-    <h3>Episode 4: The Last Laugh</h3>
-    <iframe width="560" height="315" 
-    src="https://www.youtube.com/embed/I8-xzKu2szg" 
-    title="Smile Before You Die - Episode 4" frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen></iframe>
-  </div>
- <div class="episode">
-   <h3>Episode 5: Silent Signals</h3>
-   <iframe width="560" height="315" 
-    src="https://www.youtube.com/embed/Ab7OgrhJ7i4" 
-    title="Smile Before You Die - Episode 5" frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen></iframe>
-  </div>
     <div class="episode">
-    <h3>Episode 6: Jokes On You 2 </h3>
-     <iframe width="560" height="315" 
-    src="https://www.youtube.com/embed/-U57_vaWrgk" 
-    title="Smile Before You Die - Episode 6" frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen></iframe>
-  </div>
+      <h3>Episode 4: The Last Laugh</h3>
+      <iframe src="https://www.youtube.com/embed/I8-xzKu2szg" title="Smile Before You Die - Episode 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
     <div class="episode">
-    <h3>Episode 7: Trust No One</h3>
-     <iframe width="560" height="315" 
-    src="https://www.youtube.com/embed/iTMhVzZmHKQ" 
-    title="Smile Before You Die - Episode 7" frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen></iframe>
-  </div>
+      <h3>Episode 5: Silent Signals</h3>
+      <iframe src="https://www.youtube.com/embed/Ab7OgrhJ7i4" title="Smile Before You Die - Episode 5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
     <div class="episode">
-    <h3>Episode 8: Laughing Shadows</h3>
-   <iframe width="560" height="315" 
-    src="https://www.youtube.com/embed/nariY00TSEU" 
-    title="Smile Before You Die - Episode 8" frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen></iframe>
-  </div>
+      <h3>Episode 6: Jokes On You 2</h3>
+      <iframe src="https://www.youtube.com/embed/-U57_vaWrgk" title="Smile Before You Die - Episode 6" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
     <div class="episode">
-    <h3>Episode 9: The Final Joke Begins </h3>
-    <iframe width="560" height="315" 
-    src="https://www.youtube.com/embed/SXvNuUm_WqE" 
-    title="Smile Before You Die - Episode 9" frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen></iframe>
-  </div>
+      <h3>Episode 7: Trust No One</h3>
+      <iframe src="https://www.youtube.com/embed/iTMhVzZmHKQ" title="Smile Before You Die - Episode 7" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
     <div class="episode">
-    <h3>Episode 10: Curtain Call</h3>
-   <iframe width="560" height="315" 
-    src="https://www.youtube.com/embed/R7XkAZS2SAg" 
-    title="Smile Before You Die - Episode 10" frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen></iframe>
-  </div>
-   <div class="chapter">
-   <h1> New Chapter........</h1>
-   </div>
+      <h3>Episode 8: Laughing Shadows</h3>
+      <iframe src="https://www.youtube.com/embed/nariY00TSEU" title="Smile Before You Die - Episode 8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
     <div class="episode">
-    <h3>Episode 11: Coming Soon...</h3>
-    <div class="coming-soon">🔒 Locked</div>
-  </div>
+      <h3>Episode 9: The Final Joke Begins</h3>
+      <iframe src="https://www.youtube.com/embed/SXvNuUm_WqE" title="Smile Before You Die - Episode 9" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
     <div class="episode">
-    <h3>Episode 12: Coming Soon...</h3>
-    <div class="coming-soon">🔒 Locked</div>
-  </div>
+      <h3>Episode 10: Curtain Call</h3>
+      <iframe src="https://www.youtube.com/embed/R7XkAZS2SAg" title="Smile Before You Die - Episode 10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <div class="chapter">
+      <h1> New Chapter........</h1>
+    </div>
+
     <div class="episode">
-    <h3>Episode 13: Coming Soon...</h3>
-    <div class="coming-soon">🔒 Locked</div>
-  </div>
+      <h3>Episode 11: Coming Soon...</h3>
+      <div class="coming-soon">🔒 Locked</div>
+    </div>
+
     <div class="episode">
-    <h3>Episode 14: Coming Soon...</h3>
-    <div class="coming-soon">🔒 Locked</div>
-  </div>
+      <h3>Episode 12: Coming Soon...</h3>
+      <div class="coming-soon">🔒 Locked</div>
+    </div>
+
     <div class="episode">
-    <h3>Episode 15: Coming Soon...</h3>
-    <div class="coming-soon">🔒 Locked</div>
-  </div>
-  <!-- Add more episodes as you upload -->
-</section>
+      <h3>Episode 13: Coming Soon...</h3>
+      <div class="coming-soon">🔒 Locked</div>
+    </div>
+
+    <div class="episode">
+      <h3>Episode 14: Coming Soon...</h3>
+      <div class="coming-soon">🔒 Locked</div>
+    </div>
+
+    <div class="episode">
+      <h3>Episode 15: Coming Soon...</h3>
+      <div class="coming-soon">🔒 Locked</div>
+    </div>
+  </section>
 
   <footer>
     <p>&copy; 2025 DarkCut Studios | All rights reserved.</p>
   </footer>
+
 </body>
 </html>
+
