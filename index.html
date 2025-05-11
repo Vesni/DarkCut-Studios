@@ -1,159 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DarkCut Studios – Returning Soon</title>
-  <link rel="icon" href="favicon.ico" />
+  <meta charset="UTF-8">
+  <title>DarkCut Studios - Maintenance Mode</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
-
     * {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      background-color: #141414;
-      color: #e50914;
       font-family: 'Orbitron', sans-serif;
+      background: black;
+      color: white;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
       height: 100vh;
-      text-align: center;
       overflow: hidden;
-      position: relative;
-      padding: 20px;
+      text-align: center;
     }
 
-    .glow {
-      text-shadow: 0 0 10px #e50914, 0 0 20px #e50914;
-    }
-
-    h1 {
-      font-size: 3em;
+    .glitch-logo {
+      width: 200px;
+      animation: logoGlitch 2s infinite;
       margin-bottom: 20px;
     }
 
-    p {
-      font-size: 1.1em;
-      color: #ffffff;
-      max-width: 600px;
-      margin-bottom: 30px;
-      line-height: 1.5;
+    @keyframes logoGlitch {
+      0%, 100% { transform: translate(0, 0) skew(0deg); }
+      20% { transform: translate(-2px, 2px) skew(1deg); }
+      40% { transform: translate(2px, -2px) skew(-1deg); }
+      60% { transform: translate(1px, 1px) skew(2deg); }
+      80% { transform: translate(-1px, -1px) skew(-2deg); }
+    }
+
+    .glitch {
+      font-size: 2.5rem;
+      color: #e50914;
+      animation: glitch 2s infinite;
+    }
+
+    @keyframes glitch {
+      0%, 100% { transform: skew(0deg); }
+      20% { transform: skew(-2deg); }
+      40% { transform: skew(2deg); }
+      60% { transform: skew(-1deg); }
+      80% { transform: skew(1deg); }
+    }
+
+    .typewriter {
+      font-size: 2rem;
+      white-space: nowrap;
+      border-right: 2px solid #e50914;
+      width: 0;
+      overflow: hidden;
+      animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
     }
 
     .countdown {
-      font-size: 1.5em;
-      color: #08d9d6;
-      margin-bottom: 30px;
+      margin: 20px;
+      font-size: 1.5rem;
+      color: #fff;
     }
 
-    a {
-      color: #ffffff;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: bold;
+    .progress-container {
+      width: 80%;
+      height: 25px;
+      background: #333;
+      border-radius: 30px;
+      margin-top: 20px;
+      overflow: hidden;
     }
 
-    a:hover {
-      color: #e50914;
-    }
-
-    .footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9em;
-      color: #888;
-    }
-
-    .background {
-      position: absolute;
-      width: 100%;
+    .progress-bar {
       height: 100%;
-      background: url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif') center/cover no-repeat;
-      opacity: 0.03;
-      z-index: -1;
+      background: #e50914;
+      width: 0%;
+      transition: width 0.5s;
+    }
+
+    #muteBtn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      color: #fff;
+      border: 2px solid #e50914;
+      padding: 5px 10px;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      z-index: 10;
     }
   </style>
 </head>
 <body>
-  <audio id="bgMusic" autoplay loop>
+
+<!-- MUSIC -->
+<audio id="bgMusic" autoplay loop>
   <source src="The Weeknd - Cry For Me (Official Music Video) (online-audio-converter.com).mp3" type="audio/mpeg">
- 
 </audio>
+<button id="muteBtn">🔊 Mute</button>
 
-<!-- Mute Button -->
-<button id="muteBtn" style="
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: transparent;
-  color: #fff;
-  border: 2px solid #e50914;
-  padding: 5px 10px;
-  font-family: 'Orbitron', sans-serif;
-  cursor: pointer;
-  z-index: 10;
-">🔊 Mute</button>
-  <div class="background"></div>
-  <h1 class="glow">🎬 DarkCut Studios – On a Break</h1>
-  <p>We’re taking a short break to manage our Legal and Personal schedule.<br>We Will be Back Soon,Just fighting with the killer</p>
+<!-- LOGO -->
+<img src="logo.png" alt="DarkCut Logo" class="glitch-logo">
 
-  <div class="countdown" id="countdown">Loading timer...</div>
+<!-- TEXT -->
+<div class="glitch">DARKCUT STUDIOS</div>
+<div class="typewriter" id="typewriterText">Rebooting Reality... Stay Tuned.</div>
+<div class="countdown" id="countdownText">Website Team says: Loading...</div>
 
-  <p>
-    Stay connected:<br/>
-    <a href="https://www.youtube.com/@DarkCut-Studios" target="_blank">YouTube</a> |
-    <a href="mailto:vesni277@gmail.com">Email</a> |
-    <a href="https://wa.me/2348026271354" target="_blank">WhatsApp</a>
-  </p>
+<!-- PROGRESS -->
+<div class="progress-container">
+  <div class="progress-bar" id="progressBar"></div>
+</div>
 
-  <div class="footer">© 2025 DarkCut Studios · Directed by Vesni Lanus</div>
-
-  <script>
-    // Set your return date here:
-    const returnDate = new Date("June 10, 2025 12:00:00").getTime();
-
-    const countdownElement = document.getElementById("countdown");
-
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = returnDate - now;
-
-      if (distance < 0) {
-        clearInterval(timer);
-        countdownElement.innerHTML = "We're Back Online!";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      countdownElement.innerHTML = 
-        `⏳ Returning in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000);
-     const music = document.getElementById("bgMusic");
+<script>
+  // MUSIC CONTROLS
+  const music = document.getElementById("bgMusic");
   const muteBtn = document.getElementById("muteBtn");
-
-  music.volume = 0.5;
-
-  muteBtn.addEventListener("click", () => {
-    if (music.muted) {
-      music.muted = false;
-      muteBtn.textContent = "🔊 Mute";
-    } else {
-      music.muted = true;
-      muteBtn.textContent = "🔈 Unmute";
-    }
-  });
-
-  // Optional fade-in effect
+  music.volume = 0;
   let vol = 0;
   const fadeIn = setInterval(() => {
     if (vol < 0.5) {
@@ -163,7 +140,44 @@
       clearInterval(fadeIn);
     }
   }, 100);
-  </script>
+
+  muteBtn.addEventListener("click", () => {
+    music.muted = !music.muted;
+    muteBtn.textContent = music.muted ? "🔈 Unmute" : "🔊 Mute";
+  });
+
+  // COUNTDOWN + PROGRESS
+  const countdownDate = new Date("June 20, 2025 00:00:00").getTime();
+  const countdownEl = document.getElementById("countdownText");
+  const progressBar = document.getElementById("progressBar");
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+
+    if (distance < 0) {
+      countdownEl.innerHTML = "Vesni says: We're back!";
+      progressBar.style.width = "100%";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / 1000 / 60) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
+
+    const totalDuration = countdownDate - new Date("May 11, 2025 00:00:00").getTime();
+    const elapsed = now - new Date("May 11, 2025 00:00:00").getTime();
+    const percent = Math.min(100, (elapsed / totalDuration) * 100);
+
+    countdownEl.innerHTML = `Our Website Team says: Only ${days}d ${hours}h ${minutes}m ${seconds}s left...`;
+    progressBar.style.width = `${percent}%`;
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
+
 </body>
 </html>
 
