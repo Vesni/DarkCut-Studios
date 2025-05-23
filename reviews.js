@@ -1,63 +1,57 @@
-document.addEventListener('DOMContentLoaded', function () {
+// reviews.js
+
+document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById('loader');
   const reviewForm = document.getElementById('reviewForm');
   const reviewsList = document.getElementById('reviewsList');
-  const nameInput = document.getElementById('name');
-  const reviewInput = document.getElementById('review');
 
-  // Display reviews from local storage if available
-  function loadReviews() {
-    // Get reviews from localStorage
-    const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
-    reviewsList.innerHTML = ''; // Clear the current list
-
-    // Append each review to the reviews list
-    reviews.forEach((review) => {
-      const reviewElement = document.createElement('div');
-      reviewElement.classList.add('review');
-      reviewElement.innerHTML = `
-        <h4>${review.name}</h4>
-        <p>${review.text}</p>
-      `;
-      reviewsList.appendChild(reviewElement);
-    });
-
-    // Hide the loader once content is loaded
+  // Hide loader after page load
+  window.onload = () => {
     loader.style.display = 'none';
+  };
+
+  // Load reviews from localStorage
+  const loadReviews = () => {
+    const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+    reviewsList.innerHTML = ''; // Clear current
+
+    reviews.forEach(({ name, review, date }) => {
+      const reviewDiv = document.createElement('div');
+      reviewDiv.classList.add('review-item');
+
+      reviewDiv.innerHTML = `
+        <h3>${escapeHTML(name)}</h3>
+        <p>${escapeHTML(review)}</p>
+        <small>${new Date(date).toLocaleString()}</small>
+        <hr>
+      `;
+      reviewsList.appendChild(reviewDiv);
+    });
+  };
+
+  // Escape HTML to prevent XSS
+  function escapeHTML(text) {
+    const div = document.createElement('div');
+    div.innerText = text;
+    return div.innerHTML;
   }
 
-  // Handle form submission
-  reviewForm.addEventListener('submit', function (e) {
+  // Handle form submit
+  reviewForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const review = document.getElementById('review').value.trim();
 
-    // Get the values from the input fields
-    const name = nameInput.value.trim();
-    const reviewText = reviewInput.value.trim();
-
-    // Validate input
-    if (name && reviewText) {
-      const newReview = { name, text: reviewText };
-
-      // Get existing reviews from localStorage
+    if (name && review) {
       const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
-
-      // Add the new review
-      reviews.push(newReview);
-
-      // Save the updated reviews back to localStorage
+      reviews.push({ name, review, date: new Date().toISOString() });
       localStorage.setItem('reviews', JSON.stringify(reviews));
 
-      // Reset the form fields
-      nameInput.value = '';
-      reviewInput.value = '';
-
-      // Reload the reviews
+      reviewForm.reset();
       loadReviews();
-    } else {
-      alert('Please fill in both fields before submitting!');
+      alert("Thanks for your review!");
     }
   });
 
-  // Load reviews when the page loads
   loadReviews();
 });
