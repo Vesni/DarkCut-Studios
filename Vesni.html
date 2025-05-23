@@ -64,38 +64,58 @@
       }
     }
 
-    header img.logo {
-      width: 160px;
-      margin-right: 50px;
-      filter: drop-shadow(0 0 5px #e50914);
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
+  header {
+  width: 100%;
+  background: #141414;
+  padding: 10px 20px;  /* smaller padding top/bottom */
+  display: flex;
+  justify-content: flex-start; /* align logo + nav to left */
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
 
-    header img.logo:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 0 12px #e50914);
-    }
+header img.logo {
+  width: 120px; /* smaller logo */
+  margin-right: 20px; /* less gap */
+}
+
 nav {
-  gap: 15px; /* tighten spacing */
+  display: flex;
+  gap: 15px;  /* tighter spacing between links */
   font-size: 1rem; /* smaller font */
 }
 
-/* Nav links styling */
 nav a {
+  color: #e50914;
   font-weight: 600;
-  font-size: 1rem; /* smaller */
-  padding: 4px 8px; /* less padding */
-  letter-spacing: 0.02em; /* subtle spacing */
+  font-size: 1rem;
+  padding: 6px 10px; /* less padding */
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s;
 }
 
-/* Active underline */
+nav a:hover,
+nav a.active {
+  color: #fff;
+}
+
+/* Optional underline effect */
 nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
   height: 2px;
-  bottom: -2px; /* slightly below */
+  background: #e50914;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s;
 }
 
-/* On hover underline width */
 nav a:hover::after,
 nav a.active::after {
   width: 100%;
