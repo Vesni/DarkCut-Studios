@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Smile Before You Die - Home</title>
+    <link rel="icon" href="assets/logo.png" type="image/png" />
   <style>
     /* Dark Netflix-inspired style */
     body {
@@ -57,6 +58,33 @@
     button:hover {
       background-color: #b0070d;
       box-shadow: 0 0 30px #b0070d;
+    }
+     header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #111;
+      display: flex;
+      align-items: center;
+      padding: 10px 40px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+    header img.logo {
+      height: 40px;
+      margin-right: 40px;
+      cursor: pointer;
+    }
+    nav a {
+      color: #e50914;
+      text-decoration: none;
+      font-weight: 700;
+      margin-right: 25px;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover, nav a[aria-current="page"] {
+      color: white;
     }
   </style>
 </head>
