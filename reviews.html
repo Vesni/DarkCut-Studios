@@ -2,10 +2,235 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Reviews | Smile Before You Die</title>
-  <link rel="stylesheet" href="reviews.css">
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-color: #141414;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Loader spinner */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(20, 20, 20, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      visibility: visible; /* toggle this via JS */
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .loader.hidden {
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .spinner {
+      border: 6px solid #333;
+      border-top: 6px solid #e50914;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Header */
+    header {
+      background-color: #141414;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 65px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+      z-index: 100;
+    }
+
+    header img.logo {
+      width: 140px;
+      margin-right: 40px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #e50914;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      line-height: 65px;
+      padding: 0 8px;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #fff;
+      border-bottom: 2px solid #fff;
+    }
+
+    /* Main section */
+    section.reviews {
+      margin: 90px auto 80px;
+      max-width: 700px;
+      background-color: #222;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+      text-align: center;
+    }
+
+    section.reviews h1 {
+      color: #e50914;
+      font-size: 2.8rem;
+      margin-bottom: 25px;
+    }
+
+    /* Form */
+    form#reviewForm {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    form#reviewForm input,
+    form#reviewForm textarea {
+      background-color: #333;
+      border: none;
+      border-radius: 5px;
+      padding: 15px;
+      font-size: 1.1rem;
+      color: #fff;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+
+    form#reviewForm input::placeholder,
+    form#reviewForm textarea::placeholder {
+      color: #999;
+    }
+
+    form#reviewForm input:focus,
+    form#reviewForm textarea:focus {
+      outline: none;
+      border: 2px solid #e50914;
+      background-color: #2a2a2a;
+    }
+
+    form#reviewForm button {
+      background-color: #e50914;
+      border: none;
+      padding: 15px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form#reviewForm button:hover {
+      background-color: #b20710;
+    }
+
+    /* Reviews list */
+    .reviews-list {
+      text-align: left;
+      max-height: 300px;
+      overflow-y: auto;
+      border-top: 1px solid #444;
+      padding-top: 20px;
+      color: #ddd;
+    }
+
+    .review-item {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #444;
+      padding-bottom: 15px;
+    }
+
+    .review-item h3 {
+      margin: 0 0 5px 0;
+      color: #e50914;
+      font-size: 1.2rem;
+    }
+
+    .review-item p {
+      margin: 0;
+      font-size: 1.1rem;
+      white-space: pre-wrap;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #141414;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 1rem;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      section.reviews {
+        margin: 80px 15px 80px;
+        padding: 25px 20px;
+      }
+
+      header img.logo {
+        width: 120px;
+        margin-right: 25px;
+      }
+
+      nav a {
+        font-size: 1rem;
+        gap: 12px;
+        line-height: normal;
+        padding: 10px 5px;
+      }
+
+      section.reviews h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -15,7 +240,7 @@
   </div>
 
   <header>
-    <img src="logo.png" alt="DarkCut Studios Logo" class="logo">
+    <img src="logo.png" alt="DarkCut Studios Logo" class="logo" />
     <nav>
       <a href="index.html">Home</a>
       <a href="episodes.html">Episodes</a>
@@ -31,7 +256,7 @@
 
     <!-- Review form -->
     <form id="reviewForm">
-      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="text" id="name" placeholder="Your Name" required />
       <textarea id="review" placeholder="Write your review..." required></textarea>
       <button type="submit">Submit Review</button>
     </form>
