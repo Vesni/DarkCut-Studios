@@ -76,36 +76,30 @@
       transform: scale(1.05);
       filter: drop-shadow(0 0 12px #e50914);
     }
+nav {
+  gap: 15px; /* tighten spacing */
+  font-size: 1rem; /* smaller font */
+}
 
-    nav {
-      display: flex;
-      gap: 25px;
-    }
+/* Nav links styling */
+nav a {
+  font-weight: 600;
+  font-size: 1rem; /* smaller */
+  padding: 4px 8px; /* less padding */
+  letter-spacing: 0.02em; /* subtle spacing */
+}
 
-    nav a {
-      font-weight: 700;
-      font-size: 1.2rem;
-      letter-spacing: 0.04em;
-      position: relative;
-      padding: 5px 0;
-    }
+/* Active underline */
+nav a::after {
+  height: 2px;
+  bottom: -2px; /* slightly below */
+}
 
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: #e50914;
-      transition: width 0.3s ease;
-    }
-
-    nav a:hover::after,
-    nav a.active::after {
-      width: 100%;
-    }
-
+/* On hover underline width */
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
     /* MAIN CONTENT */
     section.hero {
       margin-top: 120px;
