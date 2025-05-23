@@ -1,130 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Episodes | Smile Before You Die</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="assets/logo.png"> 
+  <link rel="icon" type="image/png" href="assets/logo.png" />
   <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
     body {
-      background-color: #141414; /* Dark background */
-      color: #fff;
-      font-family: 'Arial', sans-serif;
       margin: 0;
-      padding: 0;
+      background-color: #141414;
+      color: white;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      overflow-x: hidden;
     }
 
+    /* Header */
     header {
+      position: fixed;
+      top: 0;
       width: 100%;
-      background-color: #141414;
-      padding: 20px 0;
+      background-color: #111;
+      display: flex;
+      align-items: center;
+      padding: 10px 40px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+    header img.logo {
+      height: 40px;
+      margin-right: 40px;
+      cursor: pointer;
+    }
+    nav a {
+      color: #e50914;
+      text-decoration: none;
+      font-weight: 700;
+      margin-right: 25px;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover, nav a[aria-current="page"] {
+      color: white;
+    }
+
+    /* Main content */
+    main {
+      padding: 100px 40px 60px; /* padding top for fixed header */
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #e50914;
+      text-shadow: 0 0 10px #e50914;
+      text-align: center;
+    }
+
+    /* Episodes grid */
+    .episodes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    /* Single episode card */
+    .episode-card {
+      background-color: #222;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .episode-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 40px #e50914;
+    }
+
+    /* Thumbnail */
+    .thumbnail {
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 aspect ratio */
+      background-size: cover;
+      background-position: center;
+      border-radius: 8px 8px 0 0;
+      position: relative;
+    }
+
+    /* Play button */
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: rgba(229, 9, 20, 0.8);
+      border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
-      position: fixed;
-      top: 0;
-      left: 0;
+      transition: background 0.3s ease;
+      box-shadow: 0 0 10px #e50914;
       z-index: 10;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+    .play-button:hover {
+      background: rgba(229, 9, 20, 1);
+      box-shadow: 0 0 20px #ff0a15;
+    }
+    .play-button:before {
+      content: '';
+      display: block;
+      margin-left: 4px;
+      border-style: solid;
+      border-width: 12px 0 12px 20px;
+      border-color: transparent transparent transparent white;
     }
 
-    header img {
-      width: 150px;
-      margin-right: 30px;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    nav a {
-      color: #e50914; /* Netflix Red */
-      font-weight: bold;
-      text-decoration: none;
+    /* Episode title */
+    .episode-title {
+      padding: 15px 20px;
       font-size: 1.1rem;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #fff;
-    }
-
-    section.episodes {
-      max-width: 1000px;
-      margin-top: 120px;
-      padding: 40px;
+      font-weight: 600;
+      color: #eee;
+      flex-grow: 1;
       text-align: center;
+      background-color: #181818;
+      border-radius: 0 0 8px 8px;
     }
 
-    h2 {
-      font-size: 3rem;
-      color: #e50914; /* Netflix Red */
-      margin-bottom: 30px;
-    }
-
-    .episode {
-      margin-bottom: 40px;
-      padding: 20px;
-      background-color: #222;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .episode h3 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-
-    iframe {
-      border-radius: 8px;
-      width: 100%;
-      max-width: 800px;
-      height: 450px;
-    }
-
+    /* Coming soon card */
     .coming-soon {
-      font-size: 1.5rem;
-      color: #aaa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
       font-weight: bold;
-      text-align: center;
-      padding: 15px;
+      color: #999;
       background-color: #333;
-      border-radius: 5px;
-      display: inline-block;
-    }
-
-    .chapter {
-      font-size: 2rem;
-      color: #fff;
-      margin-top: 40px;
-      margin-bottom: 20px;
-    }
-
-    footer {
-      background-color: #141414;
-      padding: 15px 0;
-      color: #fff;
+      border-radius: 8px;
+      height: 200px;
+      user-select: none;
       text-align: center;
-      width: 100%;
-      position: fixed;
-      bottom: 0;
+      padding: 20px;
     }
 
-    footer p {
-      font-size: 1rem;
+    /* Modal Styles */
+    #modalOverlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1500;
+    }
+    #modalContent {
+      position: relative;
+      width: 90%;
+      max-width: 900px;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #e50914;
+    }
+    #modalContent iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 10px;
+    }
+    #modalClose {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      font-weight: bold;
+      background: transparent;
+      border: none;
+      transition: color 0.3s;
+    }
+    #modalClose:hover {
+      color: #e50914;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #111;
+      color: #555;
+      font-size: 0.9rem;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        padding: 10px 20px;
+      }
+      main {
+        padding: 100px 20px 80px;
+      }
+      nav a {
+        font-size: 0.9rem;
+        margin-right: 15px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Background music -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="The Weeknd - Cry For Me (Official Music Video) (online-audio-converter.com).mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
   <header>
-    <img src="logo.png" alt="DarkCut Studios Logo" class="logo">
+    <img src="logo.png" alt="DarkCut Studios Logo" class="logo" onclick="location.href='index.html'" />
     <nav>
       <a href="index.html">Home</a>
-      <a href="episodes.html">Episodes</a>
+      <a href="episodes.html" aria-current="page">Episodes</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="reviews.html">Reviews</a>
@@ -132,93 +246,121 @@
     </nav>
   </header>
 
-  <section class="episodes">
-    <h2>Watch Episodes</h2>
+  <main>
+    <h1>Smile Before You Die - Episodes</h1>
+    <div class="episodes-grid">
+      <!-- Episode cards -->
+      <div class="episode-card" onclick="openEpisode('HwBRnWtR5sM')">
+        <div class="thumbnail" style="background-image: url('https://img.youtube.com/vi/HwBRnWtR5sM/hqdefault.jpg')">
+          <div class="play-button" aria-label="Play Episode 1"></div>
+        </div>
+        <div class="episode-title">Episode 1: Smile for the Camera</div>
+      </div>
 
-    <div class="episode">
-      <h3>Episode 1: Smile for the Camera</h3>
-      <iframe src="https://www.youtube.com/embed/HwBRnWtR5sM" title="Smile Before You Die - Episode 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
+      <div class="episode-card" onclick="openEpisode('Htku5uG6W5g')">
+        <div class="thumbnail" style="background-image: url('https://img.youtube.com/vi/Htku5uG6W5g/hqdefault.jpg')">
+          <div class="play-button" aria-label="Play Episode 2"></div>
+        </div>
+        <div class="episode-title">Episode 2: Jokes on You</div>
+      </div>
 
-    <div class="episode">
-      <h3>Episode 2: Jokes on You</h3>
-      <iframe src="https://www.youtube.com/embed/Htku5uG6W5g" title="Smile Before You Die - Episode 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
+      <div class="episode-card" onclick="openEpisode('tG8CZgrTIdM')">
+        <div class="thumbnail" style="background-image: url('https://img.youtube.com/vi/tG8CZgrTIdM/hqdefault.jpg')">
+          <div class="play-button" aria-label="Play Episode 3"></div>
+        </div>
+        <div class="episode-title">Episode 3: Behind the Mask</div>
+      </div>
 
-    <div class="episode">
-      <h3>Episode 3: Behind the Mask</h3>
-      <iframe src="https://www.youtube.com/embed/tG8CZgrTIdM" title="Smile Before You Die - Episode 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
+      <div class="episode-card" onclick="openEpisode('I8-xzKu2szg')">
+        <div class="thumbnail" style="background-image: url('https://img.youtube.com/vi/I8-xzKu2szg/hqdefault.jpg')">
+          <div class="play-button" aria-label="Play Episode 4"></div>
+        </div>
+        <div class="episode-title">Episode 4: The Last Laugh</div>
+      </div>
 
-    <div class="episode">
-      <h3>Episode 4: The Last Laugh</h3>
-      <iframe src="https://www.youtube.com/embed/I8-xzKu2szg" title="Smile Before You Die - Episode 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
+      <div class="episode-card" onclick="openEpisode('Ab7OgrhJ7i4')">
+        <div class="thumbnail" style="background-image: url('https://img.youtube.com/vi/Ab7OgrhJ7i4/hqdefault.jpg')">
+          <div class="play-button" aria-label="Play Episode 5"></div>
+        </div>
+        <div class="episode-title">Episode 5: Silent Signals</div>
+      </div>
 
-    <div class="episode">
-      <h3>Episode 5: Silent Signals</h3>
-      <iframe src="https://www.youtube.com/embed/Ab7OgrhJ7i4" title="Smile Before You Die - Episode 5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
+      <div class="episode-card" onclick="openEpisode('-U57_vaWrgk')">
+        <div class="thumbnail" style="background-image: url('https://img.youtube.com/vi/-U57_vaWrgk/hqdefault.jpg')">
+          <div class="play-button" aria-label="Play Episode 6"></div>
+        </div>
+        <div class="episode-title">Episode 6: Jokes On You 2</div>
+      </div>
 
-    <div class="episode">
-      <h3>Episode 6: Jokes On You 2</h3>
-      <iframe src="https://www.youtube.com/embed/-U57_vaWrgk" title="Smile Before You Die - Episode 6" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
+      <div class="episode-card" onclick="openEpisode('iTMhVzZmHKQ')">
+        <div class="thumbnail" style="background-image: url('https://img.youtube.com/vi/iTMhVzZmHKQ/hqdefault.jpg')">
+          <div class="play-button" aria-label="Play Episode 7"></div>
+        </div>
+        <div class="episode-title">Episode 7: Trust No One</div>
+      </div>
 
-    <div class="episode">
-      <h3>Episode 7: Trust No One</h3>
-      <iframe src="https://www.youtube.com/embed/iTMhVzZmHKQ" title="Smile Before You Die - Episode 7" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
+      <div class="episode-card" onclick="openEpisode('nariY00TSEU')">
+        <div class="thumbnail" style="background-image: url('https://img.youtube.com/vi/nariY00TSEU/hqdefault.jpg')">
+          <div class="play-button" aria-label="Play Episode 8"></div>
+        </div>
+        <div class="episode-title">Episode 8: Laughing Shadows</div>
+      </div>
 
-    <div class="episode">
-      <h3>Episode 8: Laughing Shadows</h3>
-      <iframe src="https://www.youtube.com/embed/nariY00TSEU" title="Smile Before You Die - Episode 8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
+      <div class="episode-card" onclick="openEpisode('SXvNuUm_WqE')">
+        <div class="thumbnail" style="background-image: url('https://img.youtube.com/vi/SXvNuUm_WqE/hqdefault.jpg')">
+          <div class="play-button" aria-label="Play Episode 9"></div>
+        </div>
+        <div class="episode-title">Episode 9: The Final Joke Begins</div>
+      </div>
 
-    <div class="episode">
-      <h3>Episode 9: The Final Joke Begins</h3>
-      <iframe src="https://www.youtube.com/embed/SXvNuUm_WqE" title="Smile Before You Die - Episode 9" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
+      <div class="episode-card" onclick="openEpisode('R7XkAZS2SAg')">
+        <div class="thumbnail" style="background-image: url('https://img.youtube.com/vi/R7XkAZS2SAg/hqdefault.jpg')">
+          <div class="play-button" aria-label="Play Episode 10"></div>
+        </div>
+        <div class="episode-title">Episode 10: Curtain Call</div>
+      </div>
 
-    <div class="episode">
-      <h3>Episode 10: Curtain Call</h3>
-      <iframe src="https://www.youtube.com/embed/R7XkAZS2SAg" title="Smile Before You Die - Episode 10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <div class="episode-card coming-soon">
+        Coming Soon
+      </div>
     </div>
-
-    <div class="chapter">
-      <h1> New Chapter........</h1>
-    </div>
-
-    <div class="episode">
-      <h3>Episode 11: Coming Soon...</h3>
-      <div class="coming-soon">🔒 Locked</div>
-    </div>
-
-    <div class="episode">
-      <h3>Episode 12: Coming Soon...</h3>
-      <div class="coming-soon">🔒 Locked</div>
-    </div>
-
-    <div class="episode">
-      <h3>Episode 13: Coming Soon...</h3>
-      <div class="coming-soon">🔒 Locked</div>
-    </div>
-
-    <div class="episode">
-      <h3>Episode 14: Coming Soon...</h3>
-      <div class="coming-soon">🔒 Locked</div>
-    </div>
-
-    <div class="episode">
-      <h3>Episode 15: Coming Soon...</h3>
-      <div class="coming-soon">🔒 Locked</div>
-    </div>
-  </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 DarkCut Studios | All rights reserved.</p>
+    &copy; 2023 DarkCut Studios. All rights reserved.
   </footer>
 
+  <!-- Modal for video playback -->
+  <div id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div id="modalContent">
+      <button id="modalClose" aria-label="Close video">&times;</button>
+      <iframe id="episodePlayer" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script>
+    const modalOverlay = document.getElementById('modalOverlay');
+    const episodePlayer = document.getElementById('episodePlayer');
+    const modalClose = document.getElementById('modalClose');
+
+    // Open episode modal with YouTube embed
+    function openEpisode(videoId) {
+      episodePlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      modalOverlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close modal and stop video
+    modalClose.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) closeModal();
+    });
+
+    function closeModal() {
+      episodePlayer.src = '';
+      modalOverlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  </script>
 </body>
 </html>
-
