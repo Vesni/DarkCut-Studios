@@ -1,154 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Smile Before You Die</title>
-    <link rel="stylesheet" href="contact.css">
-    <link rel="icon" type="image/png" href="assets/logo.png"> 
-    <style>
-        body {
-            background-color: #141414; /* Dark background */
-            color: #fff;
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - Smile Before You Die</title>
+  <link rel="stylesheet" href="contact.css" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <style>
+    body {
+      background-color: #141414; /* Dark background */
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      padding-bottom: 60px; /* footer space */
+    }
 
-        header {
-            width: 100%;
-            background-color: #141414;
-            padding: 20px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 10;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-        }
+    header {
+      width: 100%;
+      background-color: #141414;
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
 
-        header img {
-            width: 150px;
-            margin-right: 30px;
-        }
+    header img {
+      width: 150px;
+      margin-right: 30px;
+      cursor: pointer;
+    }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
 
-        nav a {
-            color: #e50914; /* Netflix Red */
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: 0.3s;
-        }
+    nav a {
+      color: #e50914; /* Netflix Red */
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: 0.3s;
+    }
 
-        nav a:hover {
-            color: #fff;
-        }
+    nav a:hover {
+      color: #fff;
+    }
 
-        section.contact {
-            max-width: 700px;
-            margin-top: 100px;
-            padding: 40px;
-            border-radius: 8px;
-            background-color: #222;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        }
+    section.contact {
+      max-width: 700px;
+      margin-top: 100px;
+      padding: 40px;
+      border-radius: 8px;
+      background-color: #222;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
 
-        section.contact h1 {
-            font-size: 3rem;
-            color: #e50914; /* Netflix Red */
-            margin-bottom: 20px;
-        }
+    section.contact h1 {
+      font-size: 3rem;
+      color: #e50914; /* Netflix Red */
+      margin-bottom: 20px;
+      text-shadow: 0 0 8px #e50914;
+    }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
 
-        input, textarea {
-            background-color: #333;
-            color: #fff;
-            border: 1px solid #555;
-            padding: 15px;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            width: 100%;
-        }
+    input,
+    textarea {
+      background-color: #333;
+      color: #fff;
+      border: 1px solid #555;
+      padding: 15px;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      width: 100%;
+      resize: vertical;
+    }
 
-        input::placeholder, textarea::placeholder {
-            color: #aaa;
-        }
+    input::placeholder,
+    textarea::placeholder {
+      color: #aaa;
+    }
 
-        button {
-            background-color: #e50914; /* Netflix Red */
-            color: #fff;
-            padding: 15px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+    button {
+      background-color: #e50914; /* Netflix Red */
+      color: #fff;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-        button:hover {
-            background-color: #b20710; /* Darker red on hover */
-        }
+    button:hover {
+      background-color: #b20710; /* Darker red on hover */
+    }
 
-        footer {
-            background-color: #141414;
-            padding: 15px 0;
-            color: #fff;
-            text-align: center;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-        }
-
-        footer p {
-            font-size: 1rem;
-        }
-    </style>
+    footer {
+      background-color: #141414;
+      padding: 15px 0;
+      color: #fff;
+      text-align: center;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      font-size: 1rem;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.7);
+    }
+  </style>
 </head>
 <body class="contact-page">
+  <header>
+    <img
+      src="logo.png"
+      alt="DarkCut Studios"
+      class="logo"
+      onclick="location.href='index.html'"
+      aria-label="Go to Home"
+    />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="episodes.html">Episodes</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="Vesni.html">About Vesni</a>
+    </nav>
+  </header>
 
-    <header>
-        <img src="logo.png" alt="DarkCut Studios" class="logo">
-        <nav>
-            <a href="index.html">Home</a>  
-            <a href="episodes.html">Episodes</a> 
-            <a href="about.html">About</a> 
-            <a href="contact.html">Contact</a>
-            <a href="reviews.html">Reviews</a>
-            <a href="Vesni.html">About Vesni</a>
-        </nav>
-    </header>
+  <section class="contact">
+    <h1>Contact Us</h1>
+    <form id="contactForm" aria-label="Contact form">
+      <input
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        required
+        aria-required="true"
+        aria-label="Your Name"
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="Your Email"
+        required
+        aria-required="true"
+        aria-label="Your Email"
+      />
+      <textarea
+        name="message"
+        placeholder="Your Message"
+        required
+        aria-required="true"
+        rows="6"
+        aria-label="Your Message"
+      ></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
 
-    <section class="contact">
-        <h1>Contact Us</h1>
-        <form id="contactForm">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
+  <footer>
+    <p>© 2025 DarkCut Studios. All rights reserved.</p>
+  </footer>
 
-    <footer>
-        <p>© 2025 DarkCut Studios. All rights reserved.</p>
-    </footer>
-
-    <script src="scripts.js"></script>
+  <script>
+    // Simple form submission handler for UX
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Thank you for your message! We will get back to you shortly.');
+      this.reset();
+    });
+  </script>
 </body>
 </html>
