@@ -1,3 +1,23 @@
+#mute-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 2000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  transition: background-color 0.3s ease;
+}
+
+#mute-btn:hover {
+  background-color: #b00610;
+}
+
 * {
   margin: 0;
   padding: 0;
