@@ -1,4 +1,31 @@
-    const carousel = document.querySelector('.carousel');
+ let player;
+  const bgMusic = document.getElementById('bgMusic');
+
+  // Called automatically by the YouTube API
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '360',
+      width: '640',
+      videoId: 'qu8dTpYLb7Q', // replace with your trailer ID
+      events: {
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  function onPlayerStateChange(event) {
+    // 1 = PLAYING
+    if (event.data == YT.PlayerState.PLAYING) {
+      bgMusic.pause();
+    }
+
+    // 0 = ENDED or 2 = PAUSED
+    if (event.data == YT.PlayerState.ENDED || event.data == YT.PlayerState.PAUSED) {
+      bgMusic.play();
+    }
+  }
+
+const carousel = document.querySelector('.carousel');
     let scrollAmount = 0;
     let scrollStep = 2;
 
