@@ -1,110 +1,146 @@
-/* General Styles */
-body {
-  font-family: Arial, sans-serif;
+* {
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: 'Arial', sans-serif;
+  color: white;
+  background: url('https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif') no-repeat center center fixed;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+/* Header Styles */
 header {
-  background-color: #333;
-  padding: 20px;
-  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #111;
+  display: flex;
+  align-items: center;
+  padding: 10px 40px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.8);
 }
 
-header .logo {
-  width: 150px;
-  margin-bottom: 10px;
+header img.logo {
+  height: 40px;
+  margin-right: 40px;
+  cursor: pointer;
 }
 
 nav a {
-  color: #fff;
-  margin: 0 15px;
+  color: #e50914;
   text-decoration: none;
-  font-size: 1.1em;
+  font-weight: 700;
+  margin-right: 25px;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
-nav a:hover {
-  text-decoration: underline;
-}
-
-nav a.active {
-  font-weight: bold;
-  border-bottom: 2px solid #fff;
+nav a:hover,
+nav a[aria-current="page"] {
+  color: white;
 }
 
 /* Hero Section */
 .hero {
+  margin-top: 120px;
   text-align: center;
-  padding: 40px 20px;
+  padding: 60px 20px;
+  animation: fadeIn 2s ease-in-out;
 }
 
 .hero h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
+  font-size: 3.5rem;
+  color: #e50914;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 10px black;
 }
 
 .hero p {
-  font-size: 1.2em;
-  color: #555;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
 }
 
-.video-container {
-  margin-top: 30px;
-  max-width: 100%;
+.trailer iframe {
+  width: 90%;
+  max-width: 560px;
+  height: 315px;
+  border: none;
+  border-radius: 10px;
+}
+
+.btn {
+  display: inline-block;
+  background: #e50914;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #b20710;
+}
+
+/* Spotlight Section */
+.spotlight {
+  margin: 60px auto;
+  max-width: 900px;
   text-align: center;
 }
 
-.countdown {
-  margin-top: 30px;
-  font-size: 1.5em;
-  color: #333;
-}
-
-#timer {
-  font-size: 2em;
-  color: #e74c3c;
-  font-weight: bold;
-}
-
-.button {
-  display: inline-block;
-  padding: 15px 30px;
-  margin-top: 40px;
-  background-color: #333;
+.spotlight h2 {
+  font-size: 2rem;
   color: #fff;
-  text-decoration: none;
-  font-size: 1.2em;
-  border-radius: 5px;
+  margin-bottom: 20px;
 }
 
-.button:hover {
-  background-color: #555;
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 10px;
 }
 
-/* Footer Styles */
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-item {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  padding: 20px;
+  min-width: 250px;
+  flex: 0 0 auto;
+  color: #fff;
+  box-shadow: 0 0 10px #000;
+}
+
+/* Footer */
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #333;
-  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+  color: #aaa;
+  font-size: 0.9rem;
 }
 
-footer p {
-  margin: 0;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2em;
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-
-  .hero p {
-    font-size: 1em;
-  }
-
-  .button {
-    padding: 12px 25px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
