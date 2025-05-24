@@ -1,4 +1,12 @@
- let player;
+ const bgMusic = document.getElementById('bg-music');
+  const muteBtn = document.getElementById('mute-btn');
+
+  muteBtn.addEventListener('click', () => {
+    bgMusic.muted = !bgMusic.muted;
+    muteBtn.textContent = bgMusic.muted ? '🔇' : '🔊';
+  });
+
+let player;
   const bgMusic = document.getElementById('bgMusic');
 
   // Called automatically by the YouTube API
