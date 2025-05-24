@@ -7,7 +7,26 @@
   <link rel="icon" type="image/png" href="assets/logo.png" />
    <link rel="icon" type="image/x-icon" href="favicon.ico">
   <style>
-    /* Reset & base */
+  #mute-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 2000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  transition: background-color 0.3s ease;
+}
+
+#mute-btn:hover {
+  background-color: #b00610;
+}
+
     * {
       box-sizing: border-box;
     }
@@ -228,11 +247,12 @@
   </style>
 </head>
 <body>
+  <button id="mute-btn">🔊</button>
 
   <!-- Background music -->
-  <audio id="bgMusic" autoplay loop>
+  <audio id="bg-music" autoplay loop>
     <source src="The Weeknd - Cry For Me (Official Music Video) (online-audio-converter.com).mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
+    
   </audio>
 
   <header>
@@ -340,6 +360,13 @@
   </div>
 
   <script>
+     const bgMusic = document.getElementById('bg-music');
+  const muteBtn = document.getElementById('mute-btn');
+
+  muteBtn.addEventListener('click', () => {
+    bgMusic.muted = !bgMusic.muted;
+    muteBtn.textContent = bgMusic.muted ? '🔇' : '🔊';
+  });
     const modalOverlay = document.getElementById('modalOverlay');
     const episodePlayer = document.getElementById('episodePlayer');
     const modalClose = document.getElementById('modalClose');
