@@ -1,23 +1,40 @@
-// Set the date for the next episode release
-const releaseDate = new Date().getTime() + (67 * 60 * 60 * 1000); // 18 hours from now
+    const carousel = document.querySelector('.carousel');
+    let scrollAmount = 0;
+    let scrollStep = 2;
 
-// Function to update the countdown every second
-function updateCountdown() {
-  const now = new Date().getTime();
-  const timeRemaining = releaseDate - now;
+    function autoScroll() {
+      scrollAmount += scrollStep;
+      if (scrollAmount >= carousel.scrollWidth - carousel.clientWidth || scrollAmount <= 0) {
+        scrollStep *= -1;
+      }
+      carousel.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+      requestAnimationFrame(autoScroll);
+    }
 
-  if (timeRemaining <= 0) {
-    document.getElementById("timer").innerHTML = "The next episode is live!";
-    clearInterval(countdownInterval);
-    return;
-  }
+    autoScroll();
 
-  const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+    // Button animation
+    const button = document.querySelector('.btn');
+    button.addEventListener('mouseover', () => {
+      button.style.transform = 'scale(1.1)';
+    });
+    button.addEventListener('mouseout', () => {
+      button.style.transform = 'scale(1)';
+    });
 
-  document.getElementById("timer").innerHTML = `${hours}h ${minutes}m ${seconds}s`;
-}
-
-// Update the countdown every second
-const countdownInterval = setInterval(updateCountdown, 1000);
+    // Smooth nav scroll
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', e => {
+        if (link.hash) {
+          e.preventDefault();
+          document.querySelector(link.hash).scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.carousel-item');
+  items.forEach(item => {
+    item.addEventListener('mouseover', () => item.style.background = '#e50914');
+    item.addEventListener('mouseout', () => item.style.background = 'rgba(0, 0, 0, 0.6)');
+  });
+});
