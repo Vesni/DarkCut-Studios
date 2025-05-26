@@ -1,4 +1,4 @@
-# Smile Before You Die - Official Website (ON BREAK)
+# Smile Before You Die - Official Website
 
 **Developed for:** DarkCut Studios  
 **Project:** 30-Day Thriller-Comedy-Mystery Challenge
@@ -8,8 +8,7 @@
 ## 📋 About the Website
 This is the official website for the *Smile Before You Die* series by DarkCut Studios.  
 Here you can:
-- Watch all 30 episodes (embedded from YouTube)
-- See countdowns for upcoming episodes
+- Watch all 10 episodes (embedded from YouTube)
 - Learn more about the story and production
 - Stay updated on new releases
 
@@ -30,10 +29,10 @@ Here you can:
 ---
 
 ## 🚀 Features
-- Countdown timer for next episode
+- Fan Spotlight/Reviews 
 - Easy embedded video players
-- Organized episodes page (up to 30 slots ready)
+- Organized episodes page 
 - Fast and clean loading
 - Professional navigation (Home, Episodes, About, Contact)
 
----
+--- Vesni --- 2025
