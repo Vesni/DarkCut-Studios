@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smile Before You Die</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body>
+<button id="mute-btn">🔊</button>
+  <header>
+    <img src="logo.png" alt="DarkCut Studios Logo" class="logo">
+    <nav>
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="episodes.html">Episodes</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="Vesni.html">About Vesni</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="content">
+        <h1>Smile Before You Die</h1>
+        <p>A Plotagon Mystery Thriller Series</p>
+        <div class="trailer">
+          <iframe src="https://www.youtube.com/embed/qu8dTpYLb7Q" allowfullscreen></iframe>
+        </div>
+        <a href="episodes.html" class="btn">Watch Episodes</a>
+      </div>
+    </section>
+
+    <section class="spotlight">
+      <h2>Fan Spotlight</h2>
+      <div class="carousel">
+        <div class="carousel-item">"Bro missed 3 shots and changed careers🤣🤣" - Unknown</div>
+        <div class="carousel-item">"Best thriller I've seen all year!" - Alex</div>
+        <div class="carousel-item">"Vesni is a genius storyteller." - Mira</div>
+        <div class="carousel-item">"Ts is not pmo 💝🌹" - Babaoniro</div>
+       <div class="carousel-item">"Thas why he the "G.O.A.T" - Unknown</div>                                                 
+        <div class="carousel-item">"Good Job " - Aarna</div>
+        <div class="carousel-item">"Dark, deep, and addictive." - Reem</div>
+        <div class="carousel-item">"Nice Series Dawg" - Madhav</div>
+        <div class="carousel-item">"Vesni just has Aura" - Abhinav</div>
+        <div class="carousel-item">"Short Midget ahh" - Shone</div>
+        <div class="carousel-item">"The Lore is Crazy for this" - Unknown</div>
+        <div class="carousel-item">"Blud spent time on this crazy" - Unknown</div>
+        <div class="carousel-item">"Best thriller I've seen all year!" - Alex</div>
+        <div class="carousel-item">"Could have spent this much time on studies 🤷‍♂️" - Unknown</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 DarkCut Studios. All rights reserved.</p>
+  </footer>
+ <audio id="bg-music" autoplay loop>
+  <source src="The Weeknd - Cry For Me (Official Music Video) (online-audio-converter.com).mp3" type="audio/mp3">
+ 
+</audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
