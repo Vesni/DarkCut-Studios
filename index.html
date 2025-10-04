@@ -3,97 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DarkCut Studios - Smile Before You Die Season 2</title>
+    <title>Smile Before You Die – Season 2 | DarkCut Studios 2025</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
-        body {
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=Netflix+Sans:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            background: #141414;
+        }
+        
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #141414 25%, #1a1a1a 50%, #0a0a0a 100%);
             color: #ffffff;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
             overflow-x: hidden;
-            min-height: 100vh;
         }
-
-        /* Clean gradient background */
-        .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #141414 100%);
-            z-index: -1;
-        }
-
-        /* Header */
-        .header {
-            background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, transparent 100%);
-            padding: 1.5rem 3rem;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
-
-        .header.scrolled {
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(15px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.5);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo img {
-            height: 40px;
-            width: auto;
-        }
-
-        .logo-text {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #E50914;
-            letter-spacing: -0.5px;
-        }
-
-        .trademark {
-            font-size: 0.8rem;
-            color: #888;
-            font-weight: 400;
-            margin-left: 0.5rem;
-        }
-
-        @keyframes pulse {
-            0%, 100% { text-shadow: 0 0 20px rgba(255, 68, 68, 0.8); }
-            50% { text-shadow: 0 0 30px rgba(255, 68, 68, 1), 0 0 40px rgba(255, 68, 68, 0.5); }
-        }
-
-        /* Main content */
+        
         .container {
-            max-width: 100%;
-            margin: 0;
-            padding: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
-
+        
+        /* Header - Apple Glass Morphism */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #e50914, #00a8e1, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #ffffff;
+            background: rgba(229, 9, 20, 0.1);
+            transform: translateY(-1px);
+        }
+        
+        /* Hero Section - Tesla Inspired */
         .hero {
-            height: 90vh;
-            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(15,15,15,0.8) 40%, rgba(25,25,25,0.6) 70%, rgba(0,0,0,0.9) 100%);
+            height: 100vh;
+            background: radial-gradient(ellipse at center, #1a1a1a 0%, #000000 70%);
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            padding: 0 4rem;
+            justify-content: center;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
-
+        
         .hero::before {
             content: '';
             position: absolute;
@@ -101,678 +102,1011 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(ellipse at 60% 20%, rgba(229, 9, 20, 0.08) 0%, transparent 60%),
-                        radial-gradient(circle at 80% 80%, rgba(70, 211, 105, 0.05) 0%, transparent 50%);
-            z-index: 1;
+            background: linear-gradient(45deg, transparent 30%, rgba(229, 9, 20, 0.05) 50%, transparent 70%);
+            animation: heroShimmer 8s ease-in-out infinite;
         }
-
-        .hero::after {
+        
+        @keyframes heroShimmer {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .season-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #e50914 0%, #b81d24 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 20px rgba(229, 9, 20, 0.3);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(229, 9, 20, 0.4);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            box-shadow: none;
+        }
+        
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            color: white;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #ffffff;
+        }
+        
+        /* Episodes Section */
+        .episodes {
+            background: #1a1a1a;
+        }
+        
+        .episodes-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, #00a8e1 0%, #0080b3 100%);
+            border-color: #00a8e1;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 168, 225, 0.3);
+        }
+        
+        .filter-btn:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        .episodes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .episode-card {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        
+        .episode-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="0.5" fill="%23ffffff" opacity="0.015"/><circle cx="80" cy="40" r="0.3" fill="%23ffffff" opacity="0.008"/><circle cx="40" cy="80" r="0.4" fill="%23ffffff" opacity="0.01"/><circle cx="60" cy="60" r="0.2" fill="%23ffffff" opacity="0.005"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            z-index: 1;
-            opacity: 0.2;
+            background: linear-gradient(135deg, rgba(229, 9, 20, 0.1) 0%, rgba(0, 168, 225, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-
-        .hero-content {
-            max-width: 600px;
-            z-index: 2;
+        
+        .episode-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
         }
-
-        .series-title {
-            font-size: 4.5rem;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 1.5rem;
-            line-height: 1.05;
-            text-shadow: 3px 3px 8px rgba(0,0,0,0.9), 0 0 30px rgba(229, 9, 20, 0.3);
-            letter-spacing: -1px;
+        
+        .episode-card:hover::before {
+            opacity: 1;
         }
-
-        @keyframes titleGlow {
-            0%, 100% { text-shadow: 3px 3px 8px rgba(0,0,0,0.9), 0 0 30px rgba(229, 9, 20, 0.3); }
-            50% { text-shadow: 3px 3px 8px rgba(0,0,0,0.9), 0 0 40px rgba(229, 9, 20, 0.5), 0 0 60px rgba(229, 9, 20, 0.2); }
-        }
-
-        .series-title:hover {
-            animation: titleGlow 2s ease-in-out infinite;
-        }
-
-        .season-info {
-            font-size: 1.2rem;
-            color: #46d369;
-            margin-bottom: 2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 15px rgba(70, 211, 105, 0.4);
-            padding: 0.5rem 0;
-        }
-
-        .description {
-            font-size: 1.4rem;
-            line-height: 1.6;
-            color: #e8e8e8;
-            margin-bottom: 3rem;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-            max-width: 650px;
-            font-weight: 300;
-        }
-
-        /* Video sections */
-        .video-section {
-            padding: 4rem 3rem;
-            background: linear-gradient(180deg, #141414 0%, #0f0f0f 50%, #141414 100%);
-            position: relative;
-        }
-
-        .video-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent 0%, rgba(229, 9, 20, 0.3) 50%, transparent 100%);
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            color: #ffffff;
-            margin-bottom: 3rem;
-            font-weight: 800;
-            padding-left: 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            letter-spacing: -0.5px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #E50914 0%, #46d369 100%);
-            border-radius: 2px;
-        }
-
-        .video-placeholder {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
-            border-radius: 12px;
+        
+        .episode-thumbnail {
+            height: 200px;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            transition: all 0.4s ease;
-            cursor: pointer;
             position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
         }
-
-        .video-placeholder::before {
-            content: '';
+        
+        .episode-icon {
+            font-size: 3rem;
+        }
+        
+        .episode-badge {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(229, 9, 20, 0.1), rgba(229, 9, 20, 0.05));
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.8);
+            color: #dc2626;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
         }
-
-        .video-placeholder:hover::before {
-            opacity: 1;
+        
+        .episode-info {
+            padding: 1.5rem;
         }
-
-        .video-placeholder:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.7);
-            border-color: rgba(229, 9, 20, 0.3);
-        }
-
-        .episode-video {
-            height: 200px;
-            font-size: 1rem;
-            margin: 1rem 0;
-        }
-
-        /* Episodes grid */
-        .episodes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .episode-card {
-            background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: pointer;
-            position: relative;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .episode-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            z-index: 10;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 0 1px rgba(229, 9, 20, 0.3);
-            border-color: rgba(229, 9, 20, 0.5);
-        }
-
-        .episode-content {
-            padding: 1rem;
-        }
-
-        .episode-number {
-            font-size: 1.1rem;
-            color: #E50914;
+        
+        .episode-title {
+            font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-        }
-
-        .episode-title {
-            font-size: 1.2rem;
             color: #ffffff;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-            line-height: 1.3;
         }
-
-        .episode-description {
-            color: #d2d2d2;
-            line-height: 1.4;
+        
+        .episode-desc {
+            color: #cccccc;
+            margin-bottom: 1rem;
             font-size: 0.9rem;
         }
-
-        .status-badge {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            background: #E50914;
-            color: #ffffff;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        
+        .episode-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #999;
         }
+        
+        .episode-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .episode-btn {
+            flex: 1;
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .episode-btn:hover {
+            background: #b91c1c;
+        }
+        
+        .episode-btn.secondary {
+            background: transparent;
+            border: 1px solid #666;
+            color: #cccccc;
+        }
+        
+        .episode-btn.secondary:hover {
+            background: #333;
+        }
+        
+        /* Characters Section */
+        .characters {
+            background: #0f0f0f;
+        }
+        
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .character-card {
+            background: #222;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .character-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .character-avatar {
+            height: 200px;
+            background: linear-gradient(135deg, #7c3aed, #dc2626);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .character-icon {
+            font-size: 4rem;
+        }
+        
+        .character-info {
+            padding: 1.5rem;
+        }
+        
+        .character-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: #dc2626;
+        }
+        
+        .character-role {
+            color: #7c3aed;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .character-desc {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Features Section */
+        .features {
+            background: #1a1a1a;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: #222;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+        
+        .feature-desc {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Newsletter Section */
+        .newsletter {
+            background: #0f0f0f;
+            text-align: center;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #333;
+            background: #222;
+            color: #ffffff;
+            border-radius: 8px;
+            outline: none;
+        }
+        
+        .newsletter-form input:focus {
+            border-color: #dc2626;
+        }
+        
+        .newsletter-form button {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: #b91c1c;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #0a0a0a;
+            padding: 3rem 0 2rem;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            color: #cccccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: #dc2626;
+            color: white;
+        }
+        
 
-        /* Responsive design */
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .series-title {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
                 font-size: 2.5rem;
             }
             
-            .container {
-                padding: 1rem;
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .episodes-grid {
+            .episodes-grid,
+            .characters-grid,
+            .features-grid {
                 grid-template-columns: 1fr;
             }
             
-            .video-placeholder {
-                height: 250px;
+            .newsletter-form {
+                flex-direction: column;
             }
-        }
+            
 
-        /* Interactive buttons */
-        .interactive-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
         }
-
-        .cta-button {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
-            color: #000000;
-            border: none;
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        
+        /* Smooth animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
         }
-
-        .cta-button:hover {
-            background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.2);
-        }
-
-        .cta-button.secondary {
-            background: linear-gradient(135deg, rgba(109, 109, 110, 0.8) 0%, rgba(80, 80, 80, 0.9) 100%);
-            color: #ffffff;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .cta-button.secondary:hover {
-            background: linear-gradient(135deg, rgba(120, 120, 120, 0.9) 0%, rgba(90, 90, 90, 1) 100%);
-            border-color: rgba(255,255,255,0.3);
-        }
-
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal-content {
-            background: #181818;
-            margin: 5% auto;
-            padding: 2rem;
-            border-radius: 8px;
-            width: 80%;
-            max-width: 600px;
-            color: #ffffff;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.8);
-            position: relative;
-        }
-
-        .close {
-            color: #ffffff;
-            float: right;
-            font-size: 1.5rem;
-            font-weight: normal;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            opacity: 0.7;
-        }
-
-        .close:hover {
+        
+        .fade-in.visible {
             opacity: 1;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Spooky hover effects */
-        .spooky-text {
-            transition: all 0.3s ease;
-        }
-
-        .spooky-text:hover {
-            color: #ff6666;
-            text-shadow: 0 0 20px rgba(255, 68, 68, 0.8);
-            transform: scale(1.05);
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <div class="bg-gradient"></div>
-    
     <!-- Background Music -->
-    <audio id="bgMusic" loop>
+    <audio id="backgroundMusic" loop>
         <source src="credits.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
     </audio>
-    
-    <!-- Music Control Button -->
-    <div id="musicControl" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; background: rgba(0,0,0,0.8); border: 2px solid #E50914; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #E50914; font-size: 1.5rem; transition: all 0.3s ease;">
-        🔊
-    </div>
-    
+    <!-- Header -->
     <header class="header">
-        <div class="logo spooky-text">
-            <img src="logo.png" alt="DarkCut Studios" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
-            <span class="logo-text" style="display: none;">DarkCut Studios</span>
-            <div class="trademark">™ Forca Team</div>
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <img src="logo.png" alt="DarkCut Studios" style="height: 40px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                    <span style="display: none;">DARKCUT 2025</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#episodes">Episodes</a></li>
+                    <li><a href="#characters">Cast</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <div class="container">
-        <div class="hero">
-            <div class="hero-content">
-                <h1 class="series-title">🎬 Smile Before You Die</h1>
-                <div class="season-info">Season 2 (Revamp) • 10 Episodes • Psychological Horror Animation</div>
 
-                <p class="description">
-                    A haunting tale set in a seemingly normal high school, forever changed by the tragic suicide of Samir, an 11th grader who couldn't bear the weight of academic failure. 
-                    When a brave student sits in Samir's old seat, they uncover a chilling truth about academic pressure, mental health, and the real meaning of success. 
-                    But the biggest twist? The investigator and the ghost are one and the same...
-                </p>
-                <div class="interactive-buttons">
-                    <button class="cta-button" onclick="showPlotBreakdown()">▶️ Play</button>
-                    <button class="cta-button secondary" onclick="showMessage()">ℹ️ More Info</button>
-                </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content fade-in">
+            <div class="season-badge">Season 2 - 2025 Edition</div>
+            <h1>SMILE BEFORE YOU DIE</h1>
+            <p class="hero-subtitle">A haunting tale set in a seemingly normal high school, forever changed by the tragic suicide of Samir, an 11th grader who couldn't bear the weight of academic failure. When a brave student sits in Samir's old seat, they uncover a chilling truth about academic pressure, mental health, and the real meaning of success. But the biggest twist? The investigator and the ghost are one and the same...</p>
+            <div class="collaboration-logos" style="margin: 2rem 0; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; align-items: center;">
+                <div style="color: #999; font-size: 0.9rem; font-weight: 500;">In collaboration with:</div>
+                <div style="color: #ffffff; font-weight: 600;">🍎 Apple</div>
+                <div style="color: #e50914; font-weight: 600;">📺 Netflix</div>
+                <div style="color: #00a8e1; font-weight: 600;">🎬 Prime Video</div>
+                <div style="color: #cc0000; font-weight: 600;">🚗 Tesla</div>
+            </div>
+            <div class="teaser-video" style="margin: 2rem 0;">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/kI6sGx3MHjA" title="Smile Before You Die - Season 2 Teaser" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 12px; max-width: 100%; height: auto;"></iframe>
+            </div>
+            <div class="cta-buttons">
+                <a href="#episodes" class="cta-button">Watch Episodes</a>
+                <a href="#features" class="cta-button cta-secondary">Explore Features</a>
             </div>
         </div>
+    </section>
 
-        <div class="video-section">
-            <h2 class="section-title spooky-text">Official Teaser Trailer</h2>
-            <div style="position: relative; width: 100%; height: 400px; border-radius: 8px; overflow: hidden;">
-                <iframe 
-                    width="100%" 
-                    height="100%" 
-                    src="https://www.youtube.com/embed/kI6sGx3MHjA?autoplay=0&mute=0&controls=1&showinfo=1&rel=0" 
-                    title="Smile Before You Die Season 2 - Official Teaser Trailer" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen
-                    style="border-radius: 8px;">
-                </iframe>
+    <!-- Episodes Section -->
+    <section class="section episodes" id="episodes">
+        <div class="container">
+            <h2 class="section-title fade-in">Season 2 Episodes (10-Part Thriller)</h2>
+            
+            <div class="episodes-filter fade-in">
+                <button class="filter-btn active" data-filter="all">All Episodes</button>
+                <button class="filter-btn" data-filter="interactive">Interactive</button>
+                <button class="filter-btn" data-filter="classic">Classic</button>
+                <button class="filter-btn" data-filter="ai">AI Enhanced</button>
             </div>
-        </div>
-
-        <div class="video-section">
-            <h2 class="section-title spooky-text">Season 2 Episodes</h2>
+            
             <div class="episodes-grid">
-                <div class="episode-card" onclick="playEpisode(1)">
-                    <div class="status-badge">NEW</div>
-                    <div class="video-placeholder episode-video">
-                        📺 Episode 1 YouTube Embed<br>
-                        <small>Click to watch</small>
+                <div class="episode-card fade-in" data-category="classic">
+                    <div class="episode-thumbnail">
+                        <div class="episode-icon">🏫</div>
+                        <div class="episode-badge">S2E1 • PILOT</div>
                     </div>
-                    <div class="episode-content">
-                        <div class="episode-number">Episode 1</div>
-                        <div class="episode-title">"The Empty Seat"</div>
-                        <div class="episode-description">
-                            New school year begins at Riverside High. There's one seat no one wants to sit in - the desk where Samir used to sit before he took his own life after failing his Grade 10 boards. A brave new student decides to take that seat.
+                    <div class="episode-info">
+                        <h3 class="episode-title">The Empty Seat</h3>
+                        <p class="episode-desc">A new student arrives at Riverside High and unknowingly sits in Samir's old seat. Strange whispers and cold drafts begin immediately.</p>
+                        <div class="episode-meta">
+                            <span>Jan 15, 2025</span>
+                            <span>45 min</span>
+                        </div>
+                        <div class="episode-actions">
+                            <button class="episode-btn">Watch Now</button>
+                            <button class="episode-btn secondary">Behind Scenes</button>
                         </div>
                     </div>
                 </div>
-
-                <div class="episode-card" onclick="playEpisode(2)">
-                    <div class="status-badge">NEW</div>
-                    <div class="episode-number">Episode 2</div>
-                    <div class="episode-title">"Whispers of the Past"</div>
-                    <div class="video-placeholder episode-video">
-                        📺 Episode 2 YouTube Embed<br>
-                        <small>Click to watch</small>
+                
+                <div class="episode-card fade-in" data-category="interactive">
+                    <div class="episode-thumbnail">
+                        <div class="episode-icon">📚</div>
+                        <div class="episode-badge">S2E2 • INTERACTIVE</div>
                     </div>
-                    <div class="episode-description">
-                        Strange events begin. Students whisper about Arjun's suicide, how the pressure from parents and teachers drove him to the edge. The new student starts experiencing cold spots and hearing faint sobbing.
-                    </div>
-                </div>
-
-                <div class="episode-card" onclick="playEpisode(3)">
-                    <div class="episode-number">Episode 3</div>
-                    <div class="episode-title">"The Pressure Cooker"</div>
-                    <div class="video-placeholder episode-video">
-                        📺 Episode 3 YouTube Embed<br>
-                        <small>Click to watch</small>
-                    </div>
-                    <div class="episode-description">
-                        Flashbacks reveal Arjun's story - the crushing expectations, sleepless nights studying, parents comparing him to others, teachers dismissing his struggles. The weight of academic pressure becomes suffocating.
+                    <div class="episode-info">
+                        <h3 class="episode-title">Academic Pressure</h3>
+                        <p class="episode-desc">YOU decide how to handle the mounting pressure. Experience Samir's final days through interactive flashbacks.</p>
+                        <div class="episode-meta">
+                            <span>Jan 17, 2025</span>
+                            <span>42 min</span>
+                        </div>
+                        <div class="episode-actions">
+                            <button class="episode-btn">Make Choices</button>
+                            <button class="episode-btn secondary">View Stats</button>
+                        </div>
                     </div>
                 </div>
-
-                <div class="episode-card" onclick="playEpisode(4)">
-                    <div class="episode-number">Episode 4</div>
-                    <div class="episode-title">"The First Encounter"</div>
-                    <div class="video-placeholder episode-video">
-                        📺 Episode 4 YouTube Embed<br>
-                        <small>Click to watch</small>
+                
+                <div class="episode-card fade-in" data-category="classic">
+                    <div class="episode-thumbnail">
+                        <div class="episode-icon">👻</div>
+                        <div class="episode-badge">S2E3 • MYSTERY</div>
                     </div>
-                    <div class="episode-description">
-                        The main character starts "talking" with Arjun's spirit. Through emotional conversations, they learn about his pain, his regrets, and his desperate wish that someone had listened to him.
-                    </div>
-                </div>
-
-                <div class="episode-card" onclick="playEpisode(5)">
-                    <div class="episode-number">Episode 5</div>
-                    <div class="episode-title">"The Blame Game"</div>
-                    <div class="video-placeholder episode-video">
-                        📺 Episode 5 YouTube Embed<br>
-                        <small>Click to watch</small>
-                    </div>
-                    <div class="episode-description">
-                        Teachers and parents argue about who's responsible. The toxic culture of academic competition is exposed - where students are numbers, not humans with feelings and dreams.
+                    <div class="episode-info">
+                        <h3 class="episode-title">The Investigation Begins</h3>
+                        <p class="episode-desc">Our protagonist starts digging into Samir's death, unaware they're investigating their own tragic past.</p>
+                        <div class="episode-meta">
+                            <span>Jan 19, 2025</span>
+                            <span>38 min</span>
+                        </div>
+                        <div class="episode-actions">
+                            <button class="episode-btn">Investigate</button>
+                            <button class="episode-btn secondary">Clue Board</button>
+                        </div>
                     </div>
                 </div>
-
-                <div class="episode-card" onclick="playEpisode(6)">
-                    <div class="episode-number">Episode 6</div>
-                    <div class="episode-title">"Hall of Shadows"</div>
-                    <div class="video-placeholder episode-video">
-                        📺 Episode 6 YouTube Embed<br>
-                        <small>Click to watch</small>
+                
+                <div class="episode-card fade-in" data-category="ai">
+                    <div class="episode-thumbnail">
+                        <div class="episode-icon">🧠</div>
+                        <div class="episode-badge">S2E4 • AI ENHANCED</div>
                     </div>
-                    <div class="episode-description">
-                        The haunting intensifies. Other students feel Arjun's presence throughout the school. Panic spreads as more students face similar academic pressure and begin to crack under the weight.
-                    </div>
-                </div>
-
-                <div class="episode-card" onclick="playEpisode(7)">
-                    <div class="episode-number">Episode 7</div>
-                    <div class="episode-title">"The Truth Behind Smiles"</div>
-                    <div class="video-placeholder episode-video">
-                        📺 Episode 7 YouTube Embed<br>
-                        <small>Click to watch</small>
-                    </div>
-                    <div class="episode-description">
-                        The main character realizes Arjun's ghost doesn't want revenge - he just wants to be heard. He wants to save other students from making the same tragic choice he did.
+                    <div class="episode-info">
+                        <h3 class="episode-title">Mental Health Crisis</h3>
+                        <p class="episode-desc">AI analyzes real student stress patterns to create personalized mental health awareness scenarios.</p>
+                        <div class="episode-meta">
+                            <span>Jan 21, 2025</span>
+                            <span>40 min</span>
+                        </div>
+                        <div class="episode-actions">
+                            <button class="episode-btn">Experience AI</button>
+                            <button class="episode-btn secondary">Resources</button>
+                        </div>
                     </div>
                 </div>
-
-                <div class="episode-card" onclick="playEpisode(8)">
-                    <div class="episode-number">Episode 8</div>
-                    <div class="episode-title">"Breaking Point"</div>
-                    <div class="video-placeholder episode-video">
-                        📺 Episode 8 YouTube Embed<br>
-                        <small>Click to watch</small>
+                
+                <div class="episode-card fade-in" data-category="classic">
+                    <div class="episode-thumbnail">
+                        <div class="episode-icon">🔍</div>
+                        <div class="episode-badge">S2E5 • REVELATION</div>
                     </div>
-                    <div class="episode-description">
-                        Another student reaches their breaking point under academic pressure. The main character and Arjun's spirit work together to intervene and show that there are always other options.
-                    </div>
-                </div>
-
-                <div class="episode-card" onclick="playEpisode(9)">
-                    <div class="episode-number">Episode 9</div>
-                    <div class="episode-title">"The Revelation"</div>
-                    <div class="video-placeholder episode-video">
-                        📺 Episode 9 YouTube Embed<br>
-                        <small>Click to watch</small>
-                    </div>
-                    <div class="episode-description">
-                        The shocking twist: The main character IS Arjun's ghost. The entire investigation was him reliving his pain, desperately trying to reach other students before they make his mistake.
+                    <div class="episode-info">
+                        <h3 class="episode-title">Hidden Truths</h3>
+                        <p class="episode-desc">The school's dark secrets about academic pressure and student welfare begin to surface.</p>
+                        <div class="episode-meta">
+                            <span>Jan 23, 2025</span>
+                            <span>44 min</span>
+                        </div>
+                        <div class="episode-actions">
+                            <button class="episode-btn">Uncover Truth</button>
+                            <button class="episode-btn secondary">Evidence</button>
+                        </div>
                     </div>
                 </div>
-
-                <div class="episode-card" onclick="playEpisode(10)">
-                    <div class="episode-number">Episode 10</div>
-                    <div class="episode-title">"Smile Before You Die"</div>
-                    <div class="video-placeholder episode-video">
-                        📺 Episode 10 YouTube Embed<br>
-                        <small>Click to watch</small>
+                
+                <div class="episode-card fade-in" data-category="interactive">
+                    <div class="episode-thumbnail">
+                        <div class="episode-icon">💔</div>
+                        <div class="episode-badge">S2E6 • EMOTIONAL</div>
                     </div>
-                    <div class="episode-description">
-                        Arjun delivers his final message: "Smile for yourself, not for others. Your worth isn't measured by grades." He fades away peacefully, leaving students inspired to support each other and choose their own paths.
+                    <div class="episode-info">
+                        <h3 class="episode-title">The Breaking Point</h3>
+                        <p class="episode-desc">Interactive episode showing Samir's final moments. Viewers can try to change the outcome.</p>
+                        <div class="episode-meta">
+                            <span>Jan 25, 2025</span>
+                            <span>50 min</span>
+                        </div>
+                        <div class="episode-actions">
+                            <button class="episode-btn">Try to Save</button>
+                            <button class="episode-btn secondary">Support Info</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="episode-card fade-in" data-category="classic">
+                    <div class="episode-thumbnail">
+                        <div class="episode-icon">🪞</div>
+                        <div class="episode-badge">S2E7 • TWIST</div>
+                    </div>
+                    <div class="episode-info">
+                        <h3 class="episode-title">Mirror of Truth</h3>
+                        <p class="episode-desc">The first hints that our investigator might not be who they think they are. Reality begins to blur.</p>
+                        <div class="episode-meta">
+                            <span>Jan 27, 2025</span>
+                            <span>41 min</span>
+                        </div>
+                        <div class="episode-actions">
+                            <button class="episode-btn">Question Reality</button>
+                            <button class="episode-btn secondary">Theory Board</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="episode-card fade-in" data-category="ai">
+                    <div class="episode-thumbnail">
+                        <div class="episode-icon">🌀</div>
+                        <div class="episode-badge">S2E8 • MIND-BENDING</div>
+                    </div>
+                    <div class="episode-info">
+                        <h3 class="episode-title">Identity Crisis</h3>
+                        <p class="episode-desc">AI-generated psychological thriller as our protagonist realizes they ARE Samir's ghost.</p>
+                        <div class="episode-meta">
+                            <span>Jan 29, 2025</span>
+                            <span>47 min</span>
+                        </div>
+                        <div class="episode-actions">
+                            <button class="episode-btn">Face Truth</button>
+                            <button class="episode-btn secondary">Psychology</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="episode-card fade-in" data-category="interactive">
+                    <div class="episode-thumbnail">
+                        <div class="episode-icon">⚖️</div>
+                        <div class="episode-badge">S2E9 • JUSTICE</div>
+                    </div>
+                    <div class="episode-info">
+                        <h3 class="episode-title">The Reckoning</h3>
+                        <p class="episode-desc">Interactive finale where viewers decide how Samir's ghost seeks justice for academic pressure victims.</p>
+                        <div class="episode-meta">
+                            <span>Jan 31, 2025</span>
+                            <span>52 min</span>
+                        </div>
+                        <div class="episode-actions">
+                            <button class="episode-btn">Choose Justice</button>
+                            <button class="episode-btn secondary">Vote Live</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="episode-card fade-in" data-category="classic">
+                    <div class="episode-thumbnail">
+                        <div class="episode-icon">🕊️</div>
+                        <div class="episode-badge">S2E10 • FINALE</div>
+                    </div>
+                    <div class="episode-info">
+                        <h3 class="episode-title">Peace at Last</h3>
+                        <p class="episode-desc">Samir's ghost finds closure, the school reforms, and mental health awareness spreads. A bittersweet ending.</p>
+                        <div class="episode-meta">
+                            <span>Feb 2, 2025</span>
+                            <span>55 min</span>
+                        </div>
+                        <div class="episode-actions">
+                            <button class="episode-btn">Final Chapter</button>
+                            <button class="episode-btn secondary">Series Wrap</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section class="section characters" id="characters">
+        <div class="container">
+            <h2 class="section-title fade-in">Season 2 Cast</h2>
+            <div class="characters-grid">
+                <div class="character-card fade-in">
+                    <div class="character-avatar">
+                        <div class="character-icon">🤖</div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">ARIA.EXE</h3>
+                        <p class="character-role">AI SURVIVOR</p>
+                        <p class="character-desc">The first AI-human hybrid character. Her personality evolves based on audience interactions throughout the season.</p>
+                    </div>
+                </div>
+                
+                <div class="character-card fade-in">
+                    <div class="character-avatar">
+                        <div class="character-icon">👁️</div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">THE OBSERVER</h3>
+                        <p class="character-role">MYSTERIOUS ENTITY</p>
+                        <p class="character-desc">Watches from the shadows. Some say it's the audience itself made manifest. Its true nature remains a mystery.</p>
+                    </div>
+                </div>
+                
+                <div class="character-card fade-in">
+                    <div class="character-avatar">
+                        <div class="character-icon">🎮</div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">PLAYER ONE</h3>
+                        <p class="character-role">AUDIENCE AVATAR</p>
+                        <p class="character-desc">YOU are the character! Make choices, solve puzzles, and determine your fate in this interactive experience.</p>
+                    </div>
+                </div>
+                
+                <div class="character-card fade-in">
+                    <div class="character-avatar">
+                        <div class="character-icon">🔮</div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">THE PREDICTOR</h3>
+                        <p class="character-role">QUANTUM SEER</p>
+                        <p class="character-desc">An AI that sees all possible timeline branches. Knows every ending but speaks only in riddles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features" id="features">
+        <div class="container">
+            <h2 class="section-title fade-in">2025 Features</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎮</div>
+                    <h3 class="feature-title">Interactive Storytelling</h3>
+                    <p class="feature-desc">Real-time voting and audience-driven plot development. Your choices shape the story as it unfolds.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title">AI Companions</h3>
+                    <p class="feature-desc">Personal AI assistants provide customized horror experiences and character insights.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🌍</div>
+                    <h3 class="feature-title">Global Live Events</h3>
+                    <p class="feature-desc">Synchronized worldwide experiences where millions collectively decide character fates.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Multi-Device Sync</h3>
+                    <p class="feature-desc">Seamless experience across all devices. Your progress syncs everywhere.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">Enhanced Animation</h3>
+                    <p class="feature-desc">Next-gen Plotagon with improved graphics and dynamic lighting.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="feature-title">Achievement System</h3>
+                    <p class="feature-desc">Unlock badges, collect character cards, and compete on global leaderboards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="section newsletter">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title">Stay Updated</h2>
+                <p style="color: #cccccc; margin-bottom: 2rem;">Get early access to episodes, exclusive content, and voting alerts.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email..." required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer style="background: #000; padding: 2rem 3rem; text-align: center; border-top: 1px solid #333;">
-        <div style="color: #888; font-size: 0.9rem;">
-            <p>&copy; 2024 DarkCut Studios. All rights reserved.</p>
-            <p style="margin-top: 0.5rem;">™ Forca Team - Creating Stories That Matter</p>
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-logo">DARKCUT STUDIOS 2025</div>
+            <p style="color: #999; margin-bottom: 1rem;">Interactive horror entertainment</p>
+            <p style="color: #e50914; font-weight: 600; margin-bottom: 2rem;">™ Forca Team</p>
+            <div class="social-links">
+                <a href="#">📺</a>
+                <a href="#">🎮</a>
+                <a href="#">🤖</a>
+                <a href="#">🌍</a>
+            </div>
+            <p style="color: #666;">&copy; 2025 DarkCut Studios. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Interactive Modals -->
-    <div id="plotModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('plotModal')">&times;</span>
-            <h2 style="color: #ff4444; margin-bottom: 1rem;">📖 Plot Breakdown</h2>
-            <div style="line-height: 1.6;">
-                <p><strong>Setting:</strong> Riverside High School - seemingly normal, but haunted by tragedy.</p>
-                <p><strong>The Haunting:</strong> Arjun's old seat carries his presence. Students who sit there experience visions and emotional breakdowns.</p>
-                <p><strong>Main Character:</strong> A brave student investigates the truth behind Arjun's suicide and the toxic academic pressure.</p>
-                <p><strong>The Twist:</strong> The investigator IS Arjun's ghost, reliving his pain to save others.</p>
-                <p><strong>Climax:</strong> Arjun delivers his message about choosing life over grades.</p>
-                <p><strong>Ending:</strong> The ghost finds peace, leaving students inspired to support each other.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="messageModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('messageModal')">&times;</span>
-            <h2 style="color: #ff4444; margin-bottom: 1rem;">💭 The Core Message</h2>
-            <div style="text-align: center; line-height: 1.8;">
-                <p style="font-size: 1.4rem; color: #ffdddd; font-weight: bold;">
-                    "Grades don't define you. Don't let pressure from parents, school, or society steal your smile — your life is worth more than a number."
-                </p>
-                <hr style="border: 1px solid #ff4444; margin: 2rem 0;">
-                <p>This series tackles the serious issue of academic pressure and student mental health. It shows that:</p>
-                <ul style="text-align: left; margin: 1rem 0;">
-                    <li>Your worth isn't measured by test scores</li>
-                    <li>There are always alternatives to despair</li>
-                    <li>Seeking help is a sign of strength, not weakness</li>
-                    <li>Supporting each other is more important than competing</li>
-                </ul>
-                <p style="font-style: italic; color: #ff6666;">Remember: You are more than your grades. Your life has value beyond any number.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="episodeModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('episodeModal')">&times;</span>
-            <h2 id="episodeTitle" style="color: #ff4444; margin-bottom: 1rem;"></h2>
-            <div class="video-placeholder" style="height: 300px; margin-bottom: 1rem;">
-                📺 YouTube Video Would Play Here<br>
-                <small>Replace with actual YouTube embed</small>
-            </div>
-            <p id="episodeDesc" style="line-height: 1.6;"></p>
-        </div>
-    </div>
-
     <script>
-        // Episode data
-        const episodes = {
-            1: { title: "Episode 1: The Empty Seat", desc: "New school year begins at Riverside High. There's one seat no one wants to sit in - the desk where Arjun used to sit before he took his own life after failing his Grade 10 boards. A brave new student decides to take that seat." },
-            2: { title: "Episode 2: Whispers of the Past", desc: "Strange events begin. Students whisper about Arjun's suicide, how the pressure from parents and teachers drove him to the edge. The new student starts experiencing cold spots and hearing faint sobbing." },
-            3: { title: "Episode 3: The Pressure Cooker", desc: "Flashbacks reveal Arjun's story - the crushing expectations, sleepless nights studying, parents comparing him to others, teachers dismissing his struggles. The weight of academic pressure becomes suffocating." },
-            4: { title: "Episode 4: The First Encounter", desc: "The main character starts 'talking' with Arjun's spirit. Through emotional conversations, they learn about his pain, his regrets, and his desperate wish that someone had listened to him." },
-            5: { title: "Episode 5: The Blame Game", desc: "Teachers and parents argue about who's responsible. The toxic culture of academic competition is exposed - where students are numbers, not humans with feelings and dreams." },
-            6: { title: "Episode 6: Hall of Shadows", desc: "The haunting intensifies. Other students feel Arjun's presence throughout the school. Panic spreads as more students face similar academic pressure and begin to crack under the weight." },
-            7: { title: "Episode 7: The Truth Behind Smiles", desc: "The main character realizes Arjun's ghost doesn't want revenge - he just wants to be heard. He wants to save other students from making the same tragic choice he did." },
-            8: { title: "Episode 8: Breaking Point", desc: "Another student reaches their breaking point under academic pressure. The main character and Arjun's spirit work together to intervene and show that there are always other options." },
-            9: { title: "Episode 9: The Revelation", desc: "The shocking twist: The main character IS Arjun's ghost. The entire investigation was him reliving his pain, desperately trying to reach other students before they make his mistake." },
-            10: { title: "Episode 10: Smile Before You Die", desc: "Arjun delivers his final message: 'Smile for yourself, not for others. Your worth isn't measured by grades.' He fades away peacefully, leaving students inspired to support each other and choose their own paths." }
-        };
-
-        // Interactive functions
-        function showPlotBreakdown() {
-            document.getElementById('plotModal').style.display = 'block';
-        }
-
-        function showMessage() {
-            document.getElementById('messageModal').style.display = 'block';
-        }
-
-        function scrollToEpisodes() {
-            document.querySelector('.episodes-grid').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function playEpisode(episodeNum) {
-            const episode = episodes[episodeNum];
-            document.getElementById('episodeTitle').textContent = episode.title;
-            document.getElementById('episodeDesc').textContent = episode.desc;
-            document.getElementById('episodeModal').style.display = 'block';
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-
-        // Close modals when clicking outside
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-            }
-        }
-
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeMusic();
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
         });
 
-        // Music control functionality
-        function initializeMusic() {
-            const bgMusic = document.getElementById('bgMusic');
-            const musicControl = document.getElementById('musicControl');
-            let isPlaying = false;
-
-            // Music control click handler
-            musicControl.addEventListener('click', function() {
-                if (isPlaying) {
-                    bgMusic.pause();
-                    musicControl.textContent = '🔇';
-                    musicControl.style.opacity = '0.6';
-                    isPlaying = false;
-                } else {
-                    bgMusic.play().catch(e => {
-                        console.log('Audio play failed:', e);
-                    });
-                    musicControl.textContent = '🔊';
-                    musicControl.style.opacity = '1';
-                    isPlaying = true;
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
             });
+        }, { threshold: 0.1 });
 
-            // Auto-play attempt (will only work if user has interacted)
-            document.addEventListener('click', function() {
-                if (!isPlaying) {
-                    bgMusic.play().then(() => {
-                        musicControl.textContent = '🔊';
-                        musicControl.style.opacity = '1';
-                        isPlaying = true;
-                    }).catch(e => {
-                        console.log('Auto-play failed:', e);
-                    });
-                }
-            }, { once: true });
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
 
-            // Hover effects for music control
-            musicControl.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.1)';
-                this.style.boxShadow = '0 0 20px rgba(229, 9, 20, 0.5)';
+        // Episode filtering
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.dataset.filter;
+                const episodes = document.querySelectorAll('.episode-card');
+                
+                episodes.forEach(episode => {
+                    if (filter === 'all' || episode.dataset.category === filter) {
+                        episode.style.display = 'block';
+                    } else {
+                        episode.style.display = 'none';
+                    }
+                });
             });
+        });
 
-            musicControl.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1)';
-                this.style.boxShadow = 'none';
+        // Episode interactions
+        document.querySelectorAll('.episode-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const episodeTitle = this.closest('.episode-card').querySelector('.episode-title').textContent;
+                alert(`Loading "${episodeTitle}"...`);
             });
-        }
+        });
+
+        // Newsletter form
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const button = this.querySelector('button');
+            const originalText = button.textContent;
+            
+            button.textContent = 'Subscribing...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.textContent = 'Subscribed!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // Background music control
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        let musicPlaying = false;
+        
+        // Add music toggle button to header
+        const musicToggle = document.createElement('button');
+        musicToggle.innerHTML = '🔇';
+        musicToggle.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        `;
+        
+        musicToggle.addEventListener('click', function() {
+            if (musicPlaying) {
+                backgroundMusic.pause();
+                this.innerHTML = '🔇';
+                musicPlaying = false;
+            } else {
+                backgroundMusic.play().catch(e => console.log('Audio play failed:', e));
+                this.innerHTML = '🔊';
+                musicPlaying = true;
+            }
+        });
+        
+        document.body.appendChild(musicToggle);
+        
+        // Auto-play attempt (will only work with user interaction)
+        document.addEventListener('click', function() {
+            if (!musicPlaying) {
+                backgroundMusic.play().then(() => {
+                    musicPlaying = true;
+                    musicToggle.innerHTML = '🔊';
+                }).catch(e => console.log('Auto-play failed:', e));
+            }
+        }, { once: true });
 
 
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'988f5189e1b7025f',t:'MTc1OTUyNDY5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98941c53332222b0',t:'MTc1OTU3NDk0NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
